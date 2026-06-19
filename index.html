@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucknow Real Estate Dashboard 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ff:'Plus Jakarta Sans',system-ui,sans-serif;
+  --bg:#fff9f0;
+  --surface:#ffffff;
+  --surface2:#fff3e0;
+  --border:rgba(0,0,0,0.08);
+  --border2:rgba(0,0,0,0.15);
+  --text:#1c1308;
+  --text2:#7a6040;
+  --text3:#b8936a;
+  --radius:14px;
+  --radius-sm:8px;
+  --radius-pill:999px;
+
+  --plot-bg:#fff0d6; --plot-text:#7a3e00; --plot-border:#f5a623; --plot-accent:#f5a623;
+  --apt-bg:#e8f0ff;  --apt-text:#1a3a8f;  --apt-border:#6a8fff; --apt-accent:#4a6cf7;
+  --row-bg:#fce8f8;  --row-text:#7a1060;  --row-border:#e07ad0; --row-accent:#d946c0;
+
+  --stat1:#4a6cf7; --stat2:#f5a623; --stat3:#d946c0; --stat4:#12b886;
+}
+
+body{font-family:var(--ff);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-height:100vh;}
+
+header{
+  background:linear-gradient(135deg,#4a6cf7 0%,#d946c0 50%,#f5a623 100%);
+  padding:0;
+  position:sticky;top:0;z-index:100;
+}
+.header-inner{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:14px 28px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.logo-wrap{display:flex;align-items:center;gap:12px;}
+.logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:rgba(255,255,255,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+}
+.header-title{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px;}
+.header-sub{font-size:12px;color:rgba(255,255,255,0.8);margin-top:1px;}
+.search-wrap{position:relative;}
+.search-wrap input{
+  width:240px;padding:9px 14px 9px 36px;
+  border:none;border-radius:var(--radius-pill);
+  background:rgba(255,255,255,0.22);color:#fff;
+  font-size:13px;font-family:var(--ff);outline:none;
+  transition:background 0.2s;
+}
+.search-wrap input::placeholder{color:rgba(255,255,255,0.65);}
+.search-wrap input:focus{background:rgba(255,255,255,0.32);}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.8);pointer-events:none;font-size:15px;}
+
+main{max-width:1140px;margin:0 auto;padding:28px 20px 56px;}
+
+.hero-strip{
+  background:linear-gradient(135deg,#4a6cf7,#d946c0);
+  border-radius:var(--radius);
+  padding:22px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+  margin-bottom:20px;
+}
+.hero-text h2{font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.3px;}
+.hero-text p{font-size:13px;color:rgba(255,255,255,0.8);margin-top:3px;}
+.hero-dots{display:flex;gap:8px;}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.35);}
+.dot:nth-child(1){background:#fff;}
+.dot:nth-child(2){background:rgba(255,255,255,0.6);}
+
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px;}
+.stat-card{
+  border-radius:var(--radius);
+  padding:16px 18px;
+  position:relative;overflow:hidden;
+}
+.stat-card::before{content:'';position:absolute;top:-20px;right:-20px;width:70px;height:70px;border-radius:50%;opacity:0.15;}
+.stat-card.s1{background:#eef1ff;border:1.5px solid #c0cbff;}
+.stat-card.s1::before{background:var(--stat1);}
+.stat-card.s2{background:#fff8ea;border:1.5px solid #fddfa0;}
+.stat-card.s2::before{background:var(--stat2);}
+.stat-card.s3{background:#fdf0fb;border:1.5px solid #f0b8e8;}
+.stat-card.s3::before{background:var(--stat3);}
+.stat-card.s4{background:#e6faf2;border:1.5px solid #9fe5ca;}
+.stat-card.s4::before{background:var(--stat4);}
+.stat-card .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:6px;}
+.stat-card.s1 .lbl{color:#4a6cf7;}
+.stat-card.s2 .lbl{color:#c47d00;}
+.stat-card.s3 .lbl{color:#b0209a;}
+.stat-card.s4 .lbl{color:#0a8a5e;}
+.stat-card .val{font-size:30px;font-weight:700;line-height:1;color:var(--text);}
+.stat-card .sub{font-size:11px;color:var(--text2);margin-top:5px;}
+
+.filters-panel{
+  background:var(--surface);
+  border:1.5px solid var(--border2);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  margin-bottom:16px;
+}
+.filters-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px;}
+.filter-group{display:flex;align-items:center;gap:6px;}
+.filter-group label{font-size:12px;font-weight:600;color:var(--text2);white-space:nowrap;text-transform:uppercase;letter-spacing:0.5px;}
+select{
+  font-size:13px;padding:7px 12px;
+  border:1.5px solid var(--border2);border-radius:var(--radius-sm);
+  background:var(--bg);color:var(--text);font-family:var(--ff);cursor:pointer;outline:none;
+  transition:border-color 0.15s;
+}
+select:focus{border-color:#4a6cf7;}
+
+.chip-row{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{
+  font-size:12px;font-weight:600;
+  padding:6px 16px;border-radius:var(--radius-pill);
+  border:1.5px solid var(--border2);background:var(--surface);
+  color:var(--text2);cursor:pointer;font-family:var(--ff);
+  transition:all 0.15s;letter-spacing:0.2px;
+}
+.chip:hover{background:var(--bg);color:var(--text);}
+.chip.active-all{background:#1c1308;color:#fff;border-color:#1c1308;}
+.chip.active-plot{background:var(--plot-accent);color:#fff;border-color:var(--plot-accent);}
+.chip.active-apt{background:var(--apt-accent);color:#fff;border-color:var(--apt-accent);}
+.chip.active-row{background:var(--row-accent);color:#fff;border-color:var(--row-accent);}
+
+.results-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.results-bar span{font-size:13px;font-weight:600;color:var(--text2);}
+.reset-btn{
+  font-size:12px;font-weight:600;padding:6px 14px;
+  border:1.5px solid var(--border2);border-radius:var(--radius-pill);
+  background:var(--surface);color:var(--text2);cursor:pointer;font-family:var(--ff);
+  transition:all 0.15s;
+}
+.reset-btn:hover{background:#f0f0f0;color:var(--text);}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+
+.card{
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:transform 0.15s,border-color 0.15s;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+}
+.card.t-plot::before{background:linear-gradient(90deg,#f5a623,#ff6b35);}
+.card.t-apt::before{background:linear-gradient(90deg,#4a6cf7,#a78bfa);}
+.card.t-row::before{background:linear-gradient(90deg,#d946c0,#f97316);}
+.card:hover{transform:translateY(-2px);border-color:var(--border2);}
+
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.card-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.35;}
+.type-badge{
+  font-size:10px;font-weight:700;padding:3px 10px;
+  border-radius:var(--radius-pill);white-space:nowrap;flex-shrink:0;
+  text-transform:uppercase;letter-spacing:0.5px;
+}
+.badge-plot{background:var(--plot-bg);color:var(--plot-text);border:1px solid var(--plot-border);}
+.badge-apt{background:var(--apt-bg);color:var(--apt-text);border:1px solid var(--apt-border);}
+.badge-row{background:var(--row-bg);color:var(--row-text);border:1px solid var(--row-border);}
+
+.card-dev{font-size:12px;color:var(--text2);font-weight:500;display:flex;align-items:center;gap:5px;}
+.card-meta{display:flex;flex-wrap:wrap;gap:5px;}
+.meta-pill{
+  font-size:11px;font-weight:500;padding:3px 9px;border-radius:var(--radius-pill);
+  border:1px solid var(--border2);color:var(--text2);background:var(--bg);
+}
+.price-pill{
+  font-size:11px;font-weight:700;padding:3px 9px;border-radius:var(--radius-pill);
+  background:#e8fff3;color:#0a6640;border:1px solid #72e0ab;
+}
+.card-desc{font-size:12px;color:var(--text2);line-height:1.6;}
+
+.empty{text-align:center;padding:3.5rem 1rem;color:var(--text3);font-size:14px;grid-column:1/-1;}
+.empty-icon{font-size:40px;margin-bottom:10px;}
+
+footer{
+  text-align:center;padding:24px;
+  font-size:12px;color:var(--text3);
+  border-top:1.5px solid var(--border);
+  background:var(--surface);
+}
+footer span{color:var(--text2);font-weight:600;}
+
+@media(max-width:640px){
+  .header-inner{padding:12px 16px;}
+  .search-wrap input{width:100%;}
+  main{padding:16px 14px 40px;}
+  .hero-strip{padding:18px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-mark">🏙️</div>
+      <div>
+        <div class="header-title">Lucknow Real Estate 2026</div>
+        <div class="header-sub">Top 30 projects across the city</div>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search projects, builders…" oninput="applyFilters()">
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="stats-row">
+    <div class="stat-card s1">
+      <div class="lbl">Total projects</div>
+      <div class="val" id="st-total">30</div>
+      <div class="sub">Plots, apts & villas</div>
+    </div>
+    <div class="stat-card s2">
+      <div class="lbl">Plots</div>
+      <div class="val" id="st-plots">10</div>
+      <div class="sub">Plotted developments</div>
+    </div>
+    <div class="stat-card s3">
+      <div class="lbl">Apartments</div>
+      <div class="val" id="st-apts">10</div>
+      <div class="sub">High-rise & mid-rise</div>
+    </div>
+    <div class="stat-card s4">
+      <div class="lbl">Row houses</div>
+      <div class="val" id="st-rows">10</div>
+      <div class="sub">Gated villa communities</div>
+    </div>
+  </div>
+
+  <div class="filters-panel">
+    <div class="filters-top">
+      <div class="filter-group">
+        <label>📍 Locality</label>
+        <select id="loc-filter" onchange="applyFilters()">
+          <option value="">All localities</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>🔨 Builder</label>
+        <select id="builder-filter" onchange="applyFilters()">
+          <option value="">All builders</option>
+        </select>
+      </div>
+    </div>
+    <div class="chip-row">
+      <button class="chip active-all" onclick="setType('all',this)">🏘️ All types</button>
+      <button class="chip" onclick="setType('Plot',this)">🟧 Plots</button>
+      <button class="chip" onclick="setType('Apartment',this)">🟦 Apartments</button>
+      <button class="chip" onclick="setType('Row House',this)">🟪 Row houses / villas</button>
+    </div>
+  </div>
+
+  <div class="results-bar">
+    <span id="results-count">Showing 30 projects</span>
+    <button class="reset-btn" onclick="resetAll()">↺ Reset all filters</button>
+  </div>
+
+  <div class="grid" id="card-grid"></div>
+
+</main>
+
+<footer>
+  <span>Lucknow Real Estate Dashboard 2026</span> &nbsp;·&nbsp; Data sourced from Square Yards, 99acres, Housing.com &amp; developer websites &nbsp;·&nbsp; Prices subject to change. Always verify RERA status before booking.
+</footer>
+
+<script>
+const projects = [
+  {name:"Omega Suraksha Enclave",dev:"Omega Infrabuild",type:"Plot",loc:"Mohanlalganj",price:"On request",desc:"260 plots across 82.4 acres; ready to move; direct Agra-Lucknow Expressway access"},
+  {name:"Pintail Park City (plots)",dev:"Pintail Infracon LLP",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"200-acre smart eco-township; 9,445 units total across plots, villas & apartments"},
+  {name:"Omaxe Metro City plots",dev:"Omaxe Group",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"690-acre township at Outer Ring Road & upcoming Ganga Expressway intersection"},
+  {name:"Eldeco City Extension",dev:"Eldeco Group",type:"Plot",loc:"Sitapur Road",price:"On request",desc:"Mix of plots, villas & apartments with premium amenities; trusted North India brand"},
+  {name:"Hero Realty Kanpur Road",dev:"Hero Realty",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"Highly anticipated upcoming plotted project on the high-growth Kanpur Road corridor"},
+  {name:"Vani Residency Phase 2",dev:"Vani Vihar Developers",type:"Plot",loc:"Sultanpur Road",price:"Affordable",desc:"Plots & row houses near Amity University; strong educational-hub connectivity"},
+  {name:"Vani Avenue",dev:"Vani Vihar Developers",type:"Plot",loc:"Sultanpur Road",price:"Affordable",desc:"Residential & commercial plots; excellent Shaheed Path & Gomti Nagar connectivity"},
+  {name:"BSD Express City",dev:"BSD Group",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"Residential & commercial plots; ~10 min from Lucknow Airport; NH frontage"},
+  {name:"Ansal Sushant Golf City plots",dev:"Ansal API",type:"Plot",loc:"Sushant Golf City",price:"Premium",desc:"3,500+ acre integrated township; one of North India's most prestigious planned addresses"},
+  {name:"LDA approved township plots",dev:"LDA",type:"Plot",loc:"Multiple sectors",price:"Govt. rates",desc:"LDA-sanctioned plots across city sectors; transparent pricing, government-backed title"},
+  {name:"Emaar Elite Oasis",dev:"Emaar India",type:"Apartment",loc:"Gomti Nagar",price:"₹2.75 Cr – ₹4.08 Cr",desc:"195 luxury 3 & 4 BHK units on 2.92 acres; Lucknow's most prestigious 2025–26 new launch"},
+  {name:"Shalimar One World Celestial",dev:"Shalimar Corp",type:"Apartment",loc:"Gomti Nagar Ext.",price:"From ₹1.49 Cr",desc:"City's highest infinity pool on the 30th floor; skyline pickleball court; 3 BHK"},
+  {name:"Omaxe The Resort",dev:"Omaxe Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"₹1.9 Cr – ₹5.2 Cr",desc:"3 & 4 BHK flats & penthouses on 3 acres; luxury positioning in premium township"},
+  {name:"Eldeco Latitude 27",dev:"Eldeco Group",type:"Apartment",loc:"IIM Road",price:"₹85 L – ₹1.35 Cr",desc:"5 towers; 2, 3 & 4 BHK; within fully inhabited Eldeco City township; abundant light"},
+  {name:"Omaxe Cassia",dev:"Omaxe Group",type:"Apartment",loc:"Kanpur Road",price:"On request",desc:"8 residential towers in 690-acre metro township; near airport; investment-led growth"},
+  {name:"Rishita Mulberry Heights",dev:"Rishita Developers",type:"Apartment",loc:"Sushant Golf City",price:"₹90 L – ₹1.6 Cr",desc:"₹8,800/sq ft; 6.57% recent appreciation; strong resale demand in Golf City"},
+  {name:"Purvanchal Royal Atlantis",dev:"Purvanchal Group",type:"Apartment",loc:"Gomti Nagar",price:"Luxury pricing",desc:"Ultra-spacious luxury residences; premium positioning on Sultanpur Road corridor"},
+  {name:"Ontario – Ekana Sportz City",dev:"Ekana Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"₹1.55 Cr – ₹4.3 Cr",desc:"Premium township adjacent to Ekana Cricket Stadium; lifestyle-focused development"},
+  {name:"BP DPS Palladio",dev:"BP Infra Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"On request",desc:"Modern apartments on a fast-developing corridor; upcoming metro Phase 2 connectivity"},
+  {name:"Oro Constella",dev:"ORO Constructions",type:"Apartment",loc:"Sushant Golf City",price:"₹90 L – ₹2.6 Cr",desc:"₹8,100/sq ft; 5 BHK options available; Shaheed Path frontage; luxury amenities"},
+  {name:"Eldeco Imperia villas",dev:"Eldeco Group",type:"Row House",loc:"Sushant Golf City",price:"From ₹44 L",desc:"1, 2 & 3 BHK simplex & duplex expandable villas; British architecture; possession Sep 2028"},
+  {name:"Rishita Mulberry Villas",dev:"Rishita Developers",type:"Row House",loc:"Sushant Golf City",price:"Premium",desc:"3,200–5,000+ sq ft luxury villas; 40%+ appreciation in 3 years; RERA approved"},
+  {name:"Shalimar Garden Bay villas",dev:"Shalimar Corp",type:"Row House",loc:"IIM Road",price:"₹65 L – ₹1.1 Cr",desc:"Gated villa community with premium amenities; consistently top-listed villa project"},
+  {name:"ORO City – The Villa",dev:"ORO Group",type:"Row House",loc:"Jankipuram",price:"From ~₹25 L",desc:"25-acre gated township; LDA approved; ready-to-move villas; PMAY linked project"},
+  {name:"Ansal Sushant Oakwood Duplex",dev:"Ansal API",type:"Row House",loc:"Sushant Golf City",price:"Premium",desc:"Duplex villas within Ansal's 3,500-acre integrated township; one of Lucknow's best addresses"},
+  {name:"Pintail Park City villas",dev:"Pintail Infracon LLP",type:"Row House",loc:"Sultanpur Road",price:"On request",desc:"Eco-friendly villas inside 200-acre smart eco-township; fully gated community"},
+  {name:"Lucknow Greens villas",dev:"Private Developer",type:"Row House",loc:"Near Indira Canal",price:"On request",desc:"LDA-approved 125-acre township; premium villas in an eco-friendly green setting"},
+  {name:"Woodland Paradise row houses",dev:"Rudraksh Developers",type:"Row House",loc:"Kursi Road",price:"On request",desc:"Adjacent to 1,000+ acre Kukrail Forest; row houses & villas in a lush natural setting"},
+  {name:"Eldeco Solano Garden",dev:"Eldeco Group",type:"Row House",loc:"Gomti Nagar Ext.",price:"On request",desc:"Upcoming premium villa community; eco-friendly gated layout by the trusted Eldeco brand"},
+  {name:"Shalimar Deva Road villas",dev:"Shalimar Corp",type:"Row House",loc:"Deva Road",price:"On request",desc:"Upcoming villas on the emerging Deva Road corridor; modern amenities & gated security"}
+];
+
+const typeIcons = {Plot:'🟧',Apartment:'🟦','Row House':'🟪'};
+const typeLabels = {'Row House':'Villa / row house'};
+
+let activeType = 'all';
+
+function populateDropdowns(){
+  const locs = [...new Set(projects.map(p=>p.loc))].sort();
+  const devs = [...new Set(projects.map(p=>p.dev))].sort();
+  const ls = document.getElementById('loc-filter');
+  const bs = document.getElementById('builder-filter');
+  locs.forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=l;ls.appendChild(o);});
+  devs.forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;bs.appendChild(o);});
+}
+
+function badgeClass(t){return t==='Plot'?'badge-plot':t==='Apartment'?'badge-apt':'badge-row';}
+function cardClass(t){return t==='Plot'?'t-plot':t==='Apartment'?'t-apt':'t-row';}
+
+function applyFilters(){
+  const loc=document.getElementById('loc-filter').value;
+  const builder=document.getElementById('builder-filter').value;
+  const search=document.getElementById('search-input').value.toLowerCase().trim();
+  const filtered=projects.filter(p=>{
+    if(activeType!=='all'&&p.type!==activeType)return false;
+    if(loc&&p.loc!==loc)return false;
+    if(builder&&p.dev!==builder)return false;
+    if(search&&!p.name.toLowerCase().includes(search)&&!p.dev.toLowerCase().includes(search)&&!p.loc.toLowerCase().includes(search))return false;
+    return true;
+  });
+  renderCards(filtered);
+  document.getElementById('results-count').textContent='Showing '+filtered.length+' project'+(filtered.length!==1?'s':'');
+  document.getElementById('st-total').textContent=filtered.length;
+  document.getElementById('st-plots').textContent=filtered.filter(p=>p.type==='Plot').length;
+  document.getElementById('st-apts').textContent=filtered.filter(p=>p.type==='Apartment').length;
+  document.getElementById('st-rows').textContent=filtered.filter(p=>p.type==='Row House').length;
+}
+
+function renderCards(list){
+  const grid=document.getElementById('card-grid');
+  if(list.length===0){
+    grid.innerHTML='<div class="empty"><div class="empty-icon">🔍</div>No projects match your filters.<br><span style="font-size:12px;opacity:0.7;">Try changing or resetting your selections.</span></div>';
+    return;
+  }
+  grid.innerHTML=list.map(p=>`
+    <div class="card ${cardClass(p.type)}">
+      <div class="card-head">
+        <div class="card-name">${p.name}</div>
+        <span class="type-badge ${badgeClass(p.type)}">${typeIcons[p.type]} ${typeLabels[p.type]||p.type}</span>
+      </div>
+      <div class="card-dev">🏗️ ${p.dev}</div>
+      <div class="card-meta">
+        <span class="meta-pill">📍 ${p.loc}</span>
+        <span class="price-pill">₹ ${p.price}</span>
+      </div>
+      <div class="card-desc">${p.desc}</div>
+    </div>
+  `).join('');
+}
+
+function setType(type,btn){
+  activeType=type;
+  document.querySelectorAll('.chip').forEach(c=>c.className='chip');
+  if(type==='all')btn.className='chip active-all';
+  else if(type==='Plot')btn.className='chip active-plot';
+  else if(type==='Apartment')btn.className='chip active-apt';
+  else btn.className='chip active-row';
+  applyFilters();
+}
+
+function resetAll(){
+  activeType='all';
+  document.getElementById('loc-filter').value='';
+  document.getElementById('builder-filter').value='';
+  document.getElementById('search-input').value='';
+  document.querySelectorAll('.chip').forEach(c=>c.className='chip');
+  document.querySelectorAll('.chip')[0].className='chip active-all';
+  applyFilters();
+}
+
+populateDropdowns();
+renderCards(projects);
+</script>
+</body>
+</html>
