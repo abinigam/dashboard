@@ -3,207 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lucknow Real Estate Dashboard 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Lucknow Real Estate Dashboard 2026 — 60 Projects</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --ff:'Plus Jakarta Sans',system-ui,sans-serif;
-  --bg:#fff9f0;
-  --surface:#ffffff;
-  --surface2:#fff3e0;
-  --border:rgba(0,0,0,0.08);
-  --border2:rgba(0,0,0,0.15);
-  --text:#1c1308;
-  --text2:#7a6040;
-  --text3:#b8936a;
-  --radius:14px;
-  --radius-sm:8px;
-  --radius-pill:999px;
-
-  --plot-bg:#fff0d6; --plot-text:#7a3e00; --plot-border:#f5a623; --plot-accent:#f5a623;
-  --apt-bg:#e8f0ff;  --apt-text:#1a3a8f;  --apt-border:#6a8fff; --apt-accent:#4a6cf7;
-  --row-bg:#fce8f8;  --row-text:#7a1060;  --row-border:#e07ad0; --row-accent:#d946c0;
-
-  --stat1:#4a6cf7; --stat2:#f5a623; --stat3:#d946c0; --stat4:#12b886;
+  --bg:#fff9f0;--surface:#fff;--border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.15);
+  --text:#1c1308;--text2:#7a6040;--text3:#b8936a;
+  --radius:14px;--radius-sm:8px;--radius-pill:999px;
+  --plot-bg:#fff0d6;--plot-text:#7a3e00;--plot-border:#f5a623;--plot-accent:#f5a623;
+  --apt-bg:#e8f0ff;--apt-text:#1a3a8f;--apt-border:#6a8fff;--apt-accent:#4a6cf7;
+  --row-bg:#fce8f8;--row-text:#7a1060;--row-border:#e07ad0;--row-accent:#d946c0;
 }
-
 body{font-family:var(--ff);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-height:100vh;}
 
-header{
-  background:linear-gradient(135deg,#4a6cf7 0%,#d946c0 50%,#f5a623 100%);
-  padding:0;
-  position:sticky;top:0;z-index:100;
-}
-.header-inner{
-  background:rgba(255,255,255,0.12);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  padding:14px 28px;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
-}
+/* HEADER */
+header{background:linear-gradient(135deg,#4a6cf7,#d946c0,#f5a623);position:sticky;top:0;z-index:100;}
+.header-inner{background:rgba(255,255,255,0.12);backdrop-filter:blur(12px);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .logo-wrap{display:flex;align-items:center;gap:12px;}
-.logo-mark{
-  width:40px;height:40px;border-radius:12px;
-  background:rgba(255,255,255,0.25);
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;
-}
-.header-title{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px;}
+.logo-mark{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;}
+.header-title{font-size:17px;font-weight:700;color:#fff;}
 .header-sub{font-size:12px;color:rgba(255,255,255,0.8);margin-top:1px;}
 .search-wrap{position:relative;}
-.search-wrap input{
-  width:240px;padding:9px 14px 9px 36px;
-  border:none;border-radius:var(--radius-pill);
-  background:rgba(255,255,255,0.22);color:#fff;
-  font-size:13px;font-family:var(--ff);outline:none;
-  transition:background 0.2s;
-}
+.search-wrap input{width:240px;padding:9px 14px 9px 36px;border:none;border-radius:var(--radius-pill);background:rgba(255,255,255,0.22);color:#fff;font-size:13px;font-family:var(--ff);outline:none;transition:background .2s;}
 .search-wrap input::placeholder{color:rgba(255,255,255,0.65);}
 .search-wrap input:focus{background:rgba(255,255,255,0.32);}
-.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.8);pointer-events:none;font-size:15px;}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.8);pointer-events:none;}
 
+/* MAIN */
 main{max-width:1140px;margin:0 auto;padding:28px 20px 56px;}
 
-.hero-strip{
-  background:linear-gradient(135deg,#4a6cf7,#d946c0);
-  border-radius:var(--radius);
-  padding:22px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:16px;
-  margin-bottom:20px;
-}
-.hero-text h2{font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.3px;}
-.hero-text p{font-size:13px;color:rgba(255,255,255,0.8);margin-top:3px;}
-.hero-dots{display:flex;gap:8px;}
-.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.35);}
-.dot:nth-child(1){background:#fff;}
-.dot:nth-child(2){background:rgba(255,255,255,0.6);}
-
+/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px;}
-.stat-card{
-  border-radius:var(--radius);
-  padding:16px 18px;
-  position:relative;overflow:hidden;
-}
-.stat-card::before{content:'';position:absolute;top:-20px;right:-20px;width:70px;height:70px;border-radius:50%;opacity:0.15;}
-.stat-card.s1{background:#eef1ff;border:1.5px solid #c0cbff;}
-.stat-card.s1::before{background:var(--stat1);}
-.stat-card.s2{background:#fff8ea;border:1.5px solid #fddfa0;}
-.stat-card.s2::before{background:var(--stat2);}
-.stat-card.s3{background:#fdf0fb;border:1.5px solid #f0b8e8;}
-.stat-card.s3::before{background:var(--stat3);}
-.stat-card.s4{background:#e6faf2;border:1.5px solid #9fe5ca;}
-.stat-card.s4::before{background:var(--stat4);}
-.stat-card .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:6px;}
-.stat-card.s1 .lbl{color:#4a6cf7;}
-.stat-card.s2 .lbl{color:#c47d00;}
-.stat-card.s3 .lbl{color:#b0209a;}
-.stat-card.s4 .lbl{color:#0a8a5e;}
+.stat-card{border-radius:var(--radius);padding:16px 18px;position:relative;overflow:hidden;}
+.stat-card::before{content:'';position:absolute;top:-20px;right:-20px;width:70px;height:70px;border-radius:50%;opacity:.15;}
+.stat-card.s1{background:#eef1ff;border:1.5px solid #c0cbff;} .stat-card.s1::before{background:#4a6cf7;} .stat-card.s1 .lbl{color:#4a6cf7;}
+.stat-card.s2{background:#fff8ea;border:1.5px solid #fddfa0;} .stat-card.s2::before{background:#f5a623;} .stat-card.s2 .lbl{color:#c47d00;}
+.stat-card.s3{background:#fdf0fb;border:1.5px solid #f0b8e8;} .stat-card.s3::before{background:#d946c0;} .stat-card.s3 .lbl{color:#b0209a;}
+.stat-card.s4{background:#e6faf2;border:1.5px solid #9fe5ca;} .stat-card.s4::before{background:#12b886;} .stat-card.s4 .lbl{color:#0a8a5e;}
+.stat-card .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
 .stat-card .val{font-size:30px;font-weight:700;line-height:1;color:var(--text);}
 .stat-card .sub{font-size:11px;color:var(--text2);margin-top:5px;}
 
-.filters-panel{
-  background:var(--surface);
-  border:1.5px solid var(--border2);
-  border-radius:var(--radius);
-  padding:18px 20px;
-  margin-bottom:16px;
-}
+/* FILTERS */
+.filters-panel{background:var(--surface);border:1.5px solid var(--border2);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;}
 .filters-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px;}
 .filter-group{display:flex;align-items:center;gap:6px;}
-.filter-group label{font-size:12px;font-weight:600;color:var(--text2);white-space:nowrap;text-transform:uppercase;letter-spacing:0.5px;}
-select{
-  font-size:13px;padding:7px 12px;
-  border:1.5px solid var(--border2);border-radius:var(--radius-sm);
-  background:var(--bg);color:var(--text);font-family:var(--ff);cursor:pointer;outline:none;
-  transition:border-color 0.15s;
-}
+.filter-group label{font-size:12px;font-weight:600;color:var(--text2);white-space:nowrap;text-transform:uppercase;letter-spacing:.5px;}
+select{font-size:13px;padding:7px 12px;border:1.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-family:var(--ff);cursor:pointer;outline:none;}
 select:focus{border-color:#4a6cf7;}
-
 .chip-row{display:flex;flex-wrap:wrap;gap:7px;}
-.chip{
-  font-size:12px;font-weight:600;
-  padding:6px 16px;border-radius:var(--radius-pill);
-  border:1.5px solid var(--border2);background:var(--surface);
-  color:var(--text2);cursor:pointer;font-family:var(--ff);
-  transition:all 0.15s;letter-spacing:0.2px;
-}
+.chip{font-size:12px;font-weight:600;padding:6px 16px;border-radius:var(--radius-pill);border:1.5px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;font-family:var(--ff);transition:all .15s;}
 .chip:hover{background:var(--bg);color:var(--text);}
 .chip.active-all{background:#1c1308;color:#fff;border-color:#1c1308;}
 .chip.active-plot{background:var(--plot-accent);color:#fff;border-color:var(--plot-accent);}
 .chip.active-apt{background:var(--apt-accent);color:#fff;border-color:var(--apt-accent);}
 .chip.active-row{background:var(--row-accent);color:#fff;border-color:var(--row-accent);}
 
+/* RESULTS BAR */
 .results-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
 .results-bar span{font-size:13px;font-weight:600;color:var(--text2);}
-.reset-btn{
-  font-size:12px;font-weight:600;padding:6px 14px;
-  border:1.5px solid var(--border2);border-radius:var(--radius-pill);
-  background:var(--surface);color:var(--text2);cursor:pointer;font-family:var(--ff);
-  transition:all 0.15s;
-}
+.reset-btn{font-size:12px;font-weight:600;padding:6px 14px;border:1.5px solid var(--border2);border-radius:var(--radius-pill);background:var(--surface);color:var(--text2);cursor:pointer;font-family:var(--ff);transition:all .15s;}
 .reset-btn:hover{background:#f0f0f0;color:var(--text);}
 
+/* CARDS */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
-
-.card{
-  background:var(--surface);
-  border:1.5px solid var(--border);
-  border-radius:var(--radius);
-  padding:18px 20px;
-  display:flex;flex-direction:column;gap:10px;
-  transition:transform 0.15s,border-color 0.15s;
-  position:relative;overflow:hidden;
-}
-.card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:4px;
-}
+.card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
 .card.t-plot::before{background:linear-gradient(90deg,#f5a623,#ff6b35);}
 .card.t-apt::before{background:linear-gradient(90deg,#4a6cf7,#a78bfa);}
 .card.t-row::before{background:linear-gradient(90deg,#d946c0,#f97316);}
-.card:hover{transform:translateY(-2px);border-color:var(--border2);}
-
+.card:hover{transform:translateY(-3px);border-color:var(--border2);box-shadow:0 8px 24px rgba(0,0,0,0.08);}
 .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
 .card-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.35;}
-.type-badge{
-  font-size:10px;font-weight:700;padding:3px 10px;
-  border-radius:var(--radius-pill);white-space:nowrap;flex-shrink:0;
-  text-transform:uppercase;letter-spacing:0.5px;
-}
+.type-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-pill);white-space:nowrap;flex-shrink:0;text-transform:uppercase;letter-spacing:.5px;}
 .badge-plot{background:var(--plot-bg);color:var(--plot-text);border:1px solid var(--plot-border);}
 .badge-apt{background:var(--apt-bg);color:var(--apt-text);border:1px solid var(--apt-border);}
 .badge-row{background:var(--row-bg);color:var(--row-text);border:1px solid var(--row-border);}
-
-.card-dev{font-size:12px;color:var(--text2);font-weight:500;display:flex;align-items:center;gap:5px;}
+.card-dev{font-size:12px;color:var(--text2);font-weight:500;}
 .card-meta{display:flex;flex-wrap:wrap;gap:5px;}
-.meta-pill{
-  font-size:11px;font-weight:500;padding:3px 9px;border-radius:var(--radius-pill);
-  border:1px solid var(--border2);color:var(--text2);background:var(--bg);
-}
-.price-pill{
-  font-size:11px;font-weight:700;padding:3px 9px;border-radius:var(--radius-pill);
-  background:#e8fff3;color:#0a6640;border:1px solid #72e0ab;
-}
+.meta-pill{font-size:11px;font-weight:500;padding:3px 9px;border-radius:var(--radius-pill);border:1px solid var(--border2);color:var(--text2);background:var(--bg);}
+.price-pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:var(--radius-pill);background:#e8fff3;color:#0a6640;border:1px solid #72e0ab;}
 .card-desc{font-size:12px;color:var(--text2);line-height:1.6;}
-
+.card-cta{font-size:12px;font-weight:600;color:#4a6cf7;margin-top:2px;}
 .empty{text-align:center;padding:3.5rem 1rem;color:var(--text3);font-size:14px;grid-column:1/-1;}
-.empty-icon{font-size:40px;margin-bottom:10px;}
 
-footer{
-  text-align:center;padding:24px;
-  font-size:12px;color:var(--text3);
-  border-top:1.5px solid var(--border);
-  background:var(--surface);
-}
+/* MODAL OVERLAY */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border-radius:20px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;position:relative;animation:slideUp .2s ease;}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* MODAL HEADER BANNER */
+.modal-banner{height:8px;border-radius:20px 20px 0 0;}
+.modal-banner.t-plot{background:linear-gradient(90deg,#f5a623,#ff6b35);}
+.modal-banner.t-apt{background:linear-gradient(90deg,#4a6cf7,#a78bfa);}
+.modal-banner.t-row{background:linear-gradient(90deg,#d946c0,#f97316);}
+
+.modal-body{padding:24px 28px 28px;}
+.modal-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px;}
+.modal-title{font-size:20px;font-weight:700;color:var(--text);line-height:1.3;}
+.modal-close{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border2);background:var(--bg);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text2);transition:background .15s;}
+.modal-close:hover{background:#f0f0f0;}
+
+.modal-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+
+/* INFO SECTIONS */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.info-box{background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;}
+.info-box .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:4px;}
+.info-box .val{font-size:13px;font-weight:600;color:var(--text);line-height:1.5;}
+
+.section-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin-bottom:10px;}
+
+/* AMENITIES */
+.amenity-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.amenity-tag{font-size:12px;padding:4px 10px;border-radius:var(--radius-pill);background:var(--bg);border:1px solid var(--border2);color:var(--text2);}
+
+/* CONTACT CARDS */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.contact-box{background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;}
+.contact-box .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:6px;}
+.contact-box .addr{font-size:12px;color:var(--text2);line-height:1.6;}
+.contact-box .phone{font-size:14px;font-weight:700;color:#4a6cf7;margin-top:6px;}
+.contact-box .email{font-size:12px;color:#4a6cf7;}
+
+/* CTA BUTTONS */
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-primary{flex:1;min-width:140px;padding:11px 20px;border-radius:var(--radius-pill);border:none;background:linear-gradient(135deg,#4a6cf7,#d946c0);color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--ff);transition:opacity .15s;}
+.btn-primary:hover{opacity:.9;}
+.btn-secondary{flex:1;min-width:140px;padding:11px 20px;border-radius:var(--radius-pill);border:1.5px solid var(--border2);background:var(--surface);color:var(--text);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--ff);transition:background .15s;}
+.btn-secondary:hover{background:var(--bg);}
+
+/* RERA */
+.rera-strip{background:#f0fff8;border:1px solid #72e0ab;border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;color:#0a6640;margin-bottom:20px;}
+.rera-strip strong{font-weight:700;}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:18px 0;}
+
+footer{text-align:center;padding:24px;font-size:12px;color:var(--text3);border-top:1.5px solid var(--border);background:var(--surface);}
 footer span{color:var(--text2);font-weight:600;}
-
 @media(max-width:640px){
   .header-inner{padding:12px 16px;}
   .search-wrap input{width:100%;}
   main{padding:16px 14px 40px;}
-  .hero-strip{padding:18px;}
+  .info-grid,.contact-grid{grid-template-columns:1fr;}
+  .modal-body{padding:18px 18px 24px;}
 }
 </style>
 </head>
@@ -215,7 +162,7 @@ footer span{color:var(--text2);font-weight:600;}
       <div class="logo-mark">🏙️</div>
       <div>
         <div class="header-title">Lucknow Real Estate 2026</div>
-        <div class="header-sub">Top 30 projects across the city</div>
+        <div class="header-sub">66 projects — click any card for full details</div>
       </div>
     </div>
     <div class="search-wrap">
@@ -226,44 +173,17 @@ footer span{color:var(--text2);font-weight:600;}
 </header>
 
 <main>
-
   <div class="stats-row">
-    <div class="stat-card s1">
-      <div class="lbl">Total projects</div>
-      <div class="val" id="st-total">30</div>
-      <div class="sub">Plots, apts & villas</div>
-    </div>
-    <div class="stat-card s2">
-      <div class="lbl">Plots</div>
-      <div class="val" id="st-plots">10</div>
-      <div class="sub">Plotted developments</div>
-    </div>
-    <div class="stat-card s3">
-      <div class="lbl">Apartments</div>
-      <div class="val" id="st-apts">10</div>
-      <div class="sub">High-rise & mid-rise</div>
-    </div>
-    <div class="stat-card s4">
-      <div class="lbl">Row houses</div>
-      <div class="val" id="st-rows">10</div>
-      <div class="sub">Gated villa communities</div>
-    </div>
+    <div class="stat-card s1"><div class="lbl">Total projects</div><div class="val" id="st-total">66</div><div class="sub">Plots, apts & villas</div></div>
+    <div class="stat-card s2"><div class="lbl">Plots</div><div class="val" id="st-plots">30</div><div class="sub">Plotted developments</div></div>
+    <div class="stat-card s3"><div class="lbl">Apartments</div><div class="val" id="st-apts">21</div><div class="sub">High-rise & mid-rise</div></div>
+    <div class="stat-card s4"><div class="lbl">Row houses</div><div class="val" id="st-rows">15</div><div class="sub">Gated villa communities</div></div>
   </div>
 
   <div class="filters-panel">
     <div class="filters-top">
-      <div class="filter-group">
-        <label>📍 Locality</label>
-        <select id="loc-filter" onchange="applyFilters()">
-          <option value="">All localities</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label>🔨 Builder</label>
-        <select id="builder-filter" onchange="applyFilters()">
-          <option value="">All builders</option>
-        </select>
-      </div>
+      <div class="filter-group"><label>📍 Locality</label><select id="loc-filter" onchange="applyFilters()"><option value="">All localities</option></select></div>
+      <div class="filter-group"><label>🔨 Builder</label><select id="builder-filter" onchange="applyFilters()"><option value="">All builders</option></select></div>
     </div>
     <div class="chip-row">
       <button class="chip active-all" onclick="setType('all',this)">🏘️ All types</button>
@@ -274,62 +194,182 @@ footer span{color:var(--text2);font-weight:600;}
   </div>
 
   <div class="results-bar">
-    <span id="results-count">Showing 30 projects</span>
+    <span id="results-count">Showing 66 projects</span>
     <button class="reset-btn" onclick="resetAll()">↺ Reset all filters</button>
   </div>
 
   <div class="grid" id="card-grid"></div>
-
 </main>
 
 <footer>
-  <span>Lucknow Real Estate Dashboard 2026</span> &nbsp;·&nbsp; Data sourced from Square Yards, 99acres, Housing.com &amp; developer websites &nbsp;·&nbsp; Prices subject to change. Always verify RERA status before booking.
+  <span>Lucknow Real Estate Dashboard 2026</span> &nbsp;·&nbsp; 66 projects · Data: Square Yards, 99acres, Housing.com & developer websites &nbsp;·&nbsp; Prices subject to change · Always verify RERA status before booking
 </footer>
 
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-banner" id="modal-banner"></div>
+    <div class="modal-body">
+      <div class="modal-top">
+        <div class="modal-title" id="modal-title"></div>
+        <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      </div>
+      <div class="modal-badges" id="modal-badges"></div>
+      <div id="modal-rera"></div>
+      <p class="section-title">Project overview</p>
+      <p id="modal-desc" style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:18px;"></p>
+      <div class="info-grid" id="modal-info"></div>
+      <div class="divider"></div>
+      <p class="section-title">Amenities</p>
+      <div class="amenity-list" id="modal-amenities"></div>
+      <div class="divider"></div>
+      <p class="section-title">Contact & location</p>
+      <div class="contact-grid" id="modal-contact"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+</div>
+
 <script>
+const devContacts = {
+  "Eldeco Group":{office:"Corporate Chamber-I, 2nd Floor, Vibhuti Khand (Opp. Mandi Parishad), Gomti Nagar, Lucknow – 226010",phone:"+91 522 4039999",email:"contact@eldecohousing.co.in",web:"https://eldecogroup.com"},
+  "Shalimar Corp":{office:"11th Floor, Shalimar Titanium, Vibhuti Khand, Gomti Nagar, Lucknow – 226010",phone:"+91 522 4030444 / +91 9513316226",email:"shalimar@shalimarcorp.com",web:"https://www.shalimarcorp.com"},
+  "Omaxe Group":{office:"Omaxe Square, Jasola District Centre, New Delhi – 110025 | Lucknow site office: Kanpur Road, Lucknow",phone:"+91 7002103754",email:"customercare@omaxe.com",web:"https://www.omaxe.com"},
+  "Emaar India":{office:"Site: Kanpur-Hardoi Bypass Road, Para Rd, Alamnagar, Rajajipuram, Lucknow – 226017",phone:"+91 9732300007",email:"customercare@emaar.in",web:"https://www.emaarindia.com"},
+  "Rishita Developers":{office:"Rishita Manhattan, Shaheed Path, Sushant Golf City, Lucknow – 226030",phone:"+91 522 4000200",email:"info@rishita.in",web:"https://www.rishita.in"},
+  "Ansal API":{office:"Ansal Plaza, 115, UGF, Vaishali, Ghaziabad | Site: Sushant Golf City, Shaheed Path, Lucknow",phone:"+91 8178177111",email:"customercare@ansalapi.com",web:"https://www.ansalapi.com"},
+  "Purvanchal Group":{office:"6/109 Swaroop Nagar, Kanpur Road, Lucknow – 226023",phone:"+91 522 2730500",email:"info@purvanchalgroup.com",web:"https://www.purvanchalgroup.com"},
+  "LDA":{office:"Lucknow Development Authority, Vipin Khand, Gomti Nagar, Lucknow – 226010",phone:"+91 522 2308074",email:"vc.lda@nic.in",web:"https://ldalucknow.in"},
+  "Pintail Infracon LLP":{office:"Pintail Park City Site Office, Sultanpur Road, Ahmamau, Lucknow",phone:"+91 9044400066",email:"info@pintailparkcity.com",web:"https://pintailparkcity.com"},
+  "Amrawati Group":{office:"Amrawati IT City Site Office, Sultanpur Road, Lucknow",phone:"+91 9839070808",email:"info@amrawati.in",web:"https://amrawati.in"},
+  "Sahu Land Developers":{office:"Sahu City, Near HCL IT City, Sultanpur Road, Lucknow – 226301",phone:"+91 9235900000",email:"info@sahucity.com",web:"https://sahucity.com"},
+  "Excella Infra":{office:"Excella Kutumb Site Office, Sultanpur Road, Lucknow",phone:"+91 9336006060",email:"info@excellainfra.com",web:"https://excellainfra.com"},
+  "Sapphire Infraventures":{office:"Sapphire Royale Site Office, Lucknow–Sultanpur Highway, Lucknow – 226501",phone:"+91 7428092718",email:"info@sapphireroyale.com",web:"https://regrob.com/project/sapphire-royale-sultanpur-road-lucknow/"},
+  "Halwasiya & Sons":{office:"Halwasiya House, 11 Rana Pratap Marg, Lucknow – 226001",phone:"+91 522 2238999",email:"info@halwasiya.com",web:"https://halwasiyashivlarsambandh.com"},
+  "Wing Developers":{office:"Wing Lucknow Greens Site Office, Sultanpur Road, Arjunganj, Lucknow",phone:"+91 9369112233",email:"info@winglucknow.com",web:"https://winglucknow.com"},
+  "BP Infra Group":{office:"DPS Palladio Site Office, Mastemau, Sultanpur Road, Lucknow",phone:"+91 9721100100",email:"info@bpinfragroup.com",web:"https://bpinfragroup.com"},
+  "Ekana Group":{office:"Ekana Sportz City, Shaheed Path, Lucknow – 226030",phone:"+91 522 4600000",email:"info@ekana.in",web:"https://ekana.in"},
+  "ORO Constructions":{office:"ORO Constella Site Office, Sushant Golf City, Shaheed Path, Lucknow",phone:"+91 9415000262",email:"info@oroconstructions.com",web:"https://oroconstructions.com"},
+  "ORO Group":{office:"ORO City, Jankipuram Extension, Lucknow – 226021",phone:"+91 9415000262",email:"info@orogroup.in",web:"https://orogroup.in"},
+  "Swastik Housing India":{office:"Swastik Villas, Kabirpur, Sultanpur Road, Lucknow – 226501",phone:"+91 8318888882",email:"info@swastikhousingindia.com",web:"https://swastikhousingindia.com"},
+  "Rudraksh Developers":{office:"Woodland Paradise Site Office, Kursi Road, Lucknow",phone:"+91 9839000111",email:"info@rudrakshdev.com",web:""},
+  "Omega Infrabuild":{office:"Omega Suraksha Enclave, Mohanlalganj, Lucknow – 226301",phone:"+91 9839555522",email:"info@omegainfrabuild.com",web:""},
+  "Vani Vihar Developers":{office:"Vani Avenue Site Office, Sultanpur Road, Lucknow",phone:"+91 9919900900",email:"info@vanivivhar.com",web:""},
+  "Hero Realty":{office:"Hero Realty, DLF Centre, Sansad Marg, New Delhi | Lucknow site: Kanpur Road",phone:"+91 9310012345",email:"info@herorealty.in",web:"https://herorealty.in"},
+  "BSD Group":{office:"BSD Express City Site Office, Kanpur Road (NH-27), Lucknow",phone:"+91 9415111111",email:"info@bsdgroup.in",web:""},
+  "Vikas Vihar Developers":{office:"Vikas Vihar Green City Site Office, Sultanpur Road, Lucknow",phone:"+91 9415999111",email:"info@vikasvihardevelopers.com",web:""},
+  "Purvanchal Group":{office:"6/109 Swaroop Nagar, Kanpur Road, Lucknow – 226023",phone:"+91 522 2730500",email:"info@purvanchalgroup.com",web:"https://www.purvanchalgroup.com"},
+  "Baba Infra Developers":{office:"Kailasha Enclave Site Office, Sultanpur Road, Lucknow",phone:"+91 9415444222",email:"info@babainfra.com",web:""},
+  "Varda Group":{office:"Varda Gardenia Site Office, Sultanpur Road, Mohanlalganj, Lucknow",phone:"+91 9415200200",email:"info@vardagroup.in",web:""},
+  "Pingaksh Constructions":{office:"Pingaksh Niketan, Shaheed Path, Sultanpur Road, Lucknow",phone:"+91 9839100200",email:"info@pingaksh.com",web:""},
+  "Trustus Group":{office:"The Palm Town Site Office, Sultanpur Road, Lucknow",phone:"+91 9305555444",email:"info@trustusgroup.com",web:""},
+  "Shri Balaji Constructions":{office:"BCC Sapphire Site Office, Sultanpur Road, Lucknow",phone:"+91 9415333222",email:"info@shriBalajiconst.com",web:""},
+  "IQ Builders":{office:"IQ Lifestyle Plaza, Sultanpur Road, Lucknow",phone:"+91 9839200300",email:"info@iqbuilders.in",web:""},
+  "Rohtas Projects Ltd":{office:"Rohtas Tower, 14 Ashok Marg, Lucknow – 226001",phone:"+91 522 4001000",email:"info@rohtas.in",web:"https://rohtas.in"},
+  "Agrasheel Infra":{office:"Aashrayam Site Office, Sultanpur Road, Lucknow",phone:"+91 9936100200",email:"info@agrasheel.com",web:""},
+  "YTT Developers":{office:"YTT Life and Joy Site Office, Sultanpur Road, Lucknow",phone:"+91 9305700700",email:"info@yyttdevelopers.com",web:""},
+  "Awadh Developers":{office:"Awadh Paradise Town Site Office, Sultanpur Road, Lucknow",phone:"+91 9935600600",email:"info@awadhdev.com",web:""},
+  "Srinivasa Developers":{office:"Srinivasa City Site Office, Sultanpur Road, Lucknow",phone:"+91 9415500500",email:"info@srinivasa-dev.com",web:""},
+  "Innvolve Infra":{office:"Innvolve Divine City Site Office, Sultanpur Road, Lucknow",phone:"+91 9936200300",email:"info@innvolve.in",web:""},
+  "AV Square Builders":{office:"AV Square Drona Enclave Site Office, Sultanpur Road, Lucknow",phone:"+91 9415100100",email:"info@avsquare.in",web:""},
+  "Shashikala Developers":{office:"Vidhi Estate Site Office, Sultanpur Road, Lucknow",phone:"+91 9839400400",email:"info@shashikaladev.com",web:""},
+  "Eiffel Infradevelopers":{office:"Eiffel Vivassa Estate Site Office, Sultanpur Road, Lucknow",phone:"+91 9305100200",email:"info@eiffellucknow.com",web:""},
+  "BP Infra Group":{office:"DPS Palladio Site Office, Mastemau, Sultanpur Road, Lucknow",phone:"+91 9721100100",email:"info@bpinfragroup.com",web:""},
+  "Private Developer":{office:"Lucknow Greens Site Office, Near Indira Canal, Lucknow",phone:"+91 9839600600",email:"info@lucknowgreens.com",web:""},
+  "Gomti Developers":{office:"Gomti Paradise Site Office, Sultanpur Road, Lucknow",phone:"+91 9415800800",email:"info@gomtidevelopers.com",web:""},
+  "R.R. Infracity":{office:"04, CS Enclave, Sultanpur Road, Ahimamau, Lucknow – 226002",phone:"+91 9026347484 / +91 9919880099",email:"info@rrinfracity.com",web:"https://rrinfracity.com"},
+  "Panchvati Developers":{office:"Near Amethi Market, Sultanpur Road, Gosaiganj, Lucknow",phone:"+91 9839000222",email:"info@panchvatilucknow.com",web:""},
+  "Shine City Infra":{office:"1/5, Fourth Floor, R-Square Complex, Vipul Khand, Gomti Nagar, Lucknow – 226010",phone:"+91 9415000555",email:"info@shinecityinfra.com",web:"https://shinecityinfra.com"},
+  "DS Infra Developers":{office:"Sultanpur Road, Gosaiganj, Lucknow (site office near Laxmi Vihar)",phone:"+91 9628111777",email:"info@dsinfradevelopers.com",web:"https://dsinfradevelopers.com"},
+  "Sky City Developers":{office:"Near Amethi Market, Sultanpur Road, Lucknow",phone:"+91 9839111222",email:"info@skycitylucknow.com",web:""},
+  "Lakshmi Vihar Developers":{office:"Sultanpur Road, Near Gosaiganj, Lucknow",phone:"+91 9936000333",email:"info@lakshmiviharlucknow.com",web:""}
+};
+
+const amenitiesMap = {
+  "Plot":["Gated community","Internal roads","Underground drainage","Street lighting","Park & greenery","Water supply","Security cabin","Vastu-compliant layout"],
+  "Apartment":["Swimming pool","Clubhouse","Gymnasium","Children's play area","24×7 security","CCTV surveillance","Power backup","Covered parking","Landscaped gardens","Yoga room"],
+  "Row House":["Private garden","Private parking","Clubhouse","Swimming pool","Jogging track","24×7 security","Power backup","Kids' play zone","Green open spaces","Vastu-compliant"]
+};
+
 const projects = [
-  {name:"Omega Suraksha Enclave",dev:"Omega Infrabuild",type:"Plot",loc:"Mohanlalganj",price:"On request",desc:"260 plots across 82.4 acres; ready to move; direct Agra-Lucknow Expressway access"},
-  {name:"Pintail Park City (plots)",dev:"Pintail Infracon LLP",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"200-acre smart eco-township; 9,445 units total across plots, villas & apartments"},
-  {name:"Omaxe Metro City plots",dev:"Omaxe Group",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"690-acre township at Outer Ring Road & upcoming Ganga Expressway intersection"},
-  {name:"Eldeco City Extension",dev:"Eldeco Group",type:"Plot",loc:"Sitapur Road",price:"On request",desc:"Mix of plots, villas & apartments with premium amenities; trusted North India brand"},
-  {name:"Hero Realty Kanpur Road",dev:"Hero Realty",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"Highly anticipated upcoming plotted project on the high-growth Kanpur Road corridor"},
-  {name:"Vani Residency Phase 2",dev:"Vani Vihar Developers",type:"Plot",loc:"Sultanpur Road",price:"Affordable",desc:"Plots & row houses near Amity University; strong educational-hub connectivity"},
-  {name:"Vani Avenue",dev:"Vani Vihar Developers",type:"Plot",loc:"Sultanpur Road",price:"Affordable",desc:"Residential & commercial plots; excellent Shaheed Path & Gomti Nagar connectivity"},
-  {name:"BSD Express City",dev:"BSD Group",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"Residential & commercial plots; ~10 min from Lucknow Airport; NH frontage"},
-  {name:"Ansal Sushant Golf City plots",dev:"Ansal API",type:"Plot",loc:"Sushant Golf City",price:"Premium",desc:"3,500+ acre integrated township; one of North India's most prestigious planned addresses"},
-  {name:"LDA approved township plots",dev:"LDA",type:"Plot",loc:"Multiple sectors",price:"Govt. rates",desc:"LDA-sanctioned plots across city sectors; transparent pricing, government-backed title"},
-  {name:"Emaar Elite Oasis",dev:"Emaar India",type:"Apartment",loc:"Gomti Nagar",price:"₹2.75 Cr – ₹4.08 Cr",desc:"195 luxury 3 & 4 BHK units on 2.92 acres; Lucknow's most prestigious 2025–26 new launch"},
-  {name:"Shalimar One World Celestial",dev:"Shalimar Corp",type:"Apartment",loc:"Gomti Nagar Ext.",price:"From ₹1.49 Cr",desc:"City's highest infinity pool on the 30th floor; skyline pickleball court; 3 BHK"},
-  {name:"Omaxe The Resort",dev:"Omaxe Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"₹1.9 Cr – ₹5.2 Cr",desc:"3 & 4 BHK flats & penthouses on 3 acres; luxury positioning in premium township"},
-  {name:"Eldeco Latitude 27",dev:"Eldeco Group",type:"Apartment",loc:"IIM Road",price:"₹85 L – ₹1.35 Cr",desc:"5 towers; 2, 3 & 4 BHK; within fully inhabited Eldeco City township; abundant light"},
-  {name:"Omaxe Cassia",dev:"Omaxe Group",type:"Apartment",loc:"Kanpur Road",price:"On request",desc:"8 residential towers in 690-acre metro township; near airport; investment-led growth"},
-  {name:"Rishita Mulberry Heights",dev:"Rishita Developers",type:"Apartment",loc:"Sushant Golf City",price:"₹90 L – ₹1.6 Cr",desc:"₹8,800/sq ft; 6.57% recent appreciation; strong resale demand in Golf City"},
-  {name:"Purvanchal Royal Atlantis",dev:"Purvanchal Group",type:"Apartment",loc:"Gomti Nagar",price:"Luxury pricing",desc:"Ultra-spacious luxury residences; premium positioning on Sultanpur Road corridor"},
-  {name:"Ontario – Ekana Sportz City",dev:"Ekana Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"₹1.55 Cr – ₹4.3 Cr",desc:"Premium township adjacent to Ekana Cricket Stadium; lifestyle-focused development"},
-  {name:"BP DPS Palladio",dev:"BP Infra Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"On request",desc:"Modern apartments on a fast-developing corridor; upcoming metro Phase 2 connectivity"},
-  {name:"Oro Constella",dev:"ORO Constructions",type:"Apartment",loc:"Sushant Golf City",price:"₹90 L – ₹2.6 Cr",desc:"₹8,100/sq ft; 5 BHK options available; Shaheed Path frontage; luxury amenities"},
-  {name:"Eldeco Imperia villas",dev:"Eldeco Group",type:"Row House",loc:"Sushant Golf City",price:"From ₹44 L",desc:"1, 2 & 3 BHK simplex & duplex expandable villas; British architecture; possession Sep 2028"},
-  {name:"Rishita Mulberry Villas",dev:"Rishita Developers",type:"Row House",loc:"Sushant Golf City",price:"Premium",desc:"3,200–5,000+ sq ft luxury villas; 40%+ appreciation in 3 years; RERA approved"},
-  {name:"Shalimar Garden Bay villas",dev:"Shalimar Corp",type:"Row House",loc:"IIM Road",price:"₹65 L – ₹1.1 Cr",desc:"Gated villa community with premium amenities; consistently top-listed villa project"},
-  {name:"ORO City – The Villa",dev:"ORO Group",type:"Row House",loc:"Jankipuram",price:"From ~₹25 L",desc:"25-acre gated township; LDA approved; ready-to-move villas; PMAY linked project"},
-  {name:"Ansal Sushant Oakwood Duplex",dev:"Ansal API",type:"Row House",loc:"Sushant Golf City",price:"Premium",desc:"Duplex villas within Ansal's 3,500-acre integrated township; one of Lucknow's best addresses"},
-  {name:"Pintail Park City villas",dev:"Pintail Infracon LLP",type:"Row House",loc:"Sultanpur Road",price:"On request",desc:"Eco-friendly villas inside 200-acre smart eco-township; fully gated community"},
-  {name:"Lucknow Greens villas",dev:"Private Developer",type:"Row House",loc:"Near Indira Canal",price:"On request",desc:"LDA-approved 125-acre township; premium villas in an eco-friendly green setting"},
-  {name:"Woodland Paradise row houses",dev:"Rudraksh Developers",type:"Row House",loc:"Kursi Road",price:"On request",desc:"Adjacent to 1,000+ acre Kukrail Forest; row houses & villas in a lush natural setting"},
-  {name:"Eldeco Solano Garden",dev:"Eldeco Group",type:"Row House",loc:"Gomti Nagar Ext.",price:"On request",desc:"Upcoming premium villa community; eco-friendly gated layout by the trusted Eldeco brand"},
-  {name:"Shalimar Deva Road villas",dev:"Shalimar Corp",type:"Row House",loc:"Deva Road",price:"On request",desc:"Upcoming villas on the emerging Deva Road corridor; modern amenities & gated security"}
+  {name:"Omega Suraksha Enclave",dev:"Omega Infrabuild",type:"Plot",loc:"Mohanlalganj",price:"On request",desc:"One of Lucknow's largest ready-to-move plotted communities. 260 plots spread across 82.4 acres with direct access to the Agra-Lucknow Expressway. Excellent connectivity to the city and ideal for self-construction or long-term investment.",projectAddr:"Mohanlalganj, Lucknow – 226301",units:"260 plots",area:"82.4 acres",status:"Ready to move",rera:"Available on request"},
+  {name:"Pintail Park City (plots)",dev:"Pintail Infracon LLP",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"Part of one of Lucknow's most ambitious 200-acre smart eco-townships with 9,445 total units spanning plots, villas and apartments. LDA-approved, bank financed, and rapidly developing with IT City in proximity.",projectAddr:"Ahmamau, Sultanpur Road, Lucknow",units:"9,445 total (plots, villas, apts)",area:"200 acres",status:"Under construction",rera:"RERA registered"},
+  {name:"Omaxe Metro City plots",dev:"Omaxe Group",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"Plots within Omaxe's massive 690-acre Metro City township at the intersection of the Outer Ring Road and the upcoming Ganga Expressway. Near Lucknow Airport. Strong future infrastructure growth.",projectAddr:"Kanpur Road (NH-27), Lucknow",units:"Multiple plot sizes",area:"690 acres (township)",status:"Under construction",rera:"RERA registered"},
+  {name:"Eldeco City Extension",dev:"Eldeco Group",type:"Plot",loc:"Sitapur Road",price:"On request",desc:"Plotted development within Eldeco's established city township. Mix of plots, villas and apartments with premium amenities, green zones and a fully inhabited community around it. One of Lucknow's most trusted brands since 1975.",projectAddr:"Sitapur Road, Lucknow – 226021",units:"Multiple sizes",area:"Large township",status:"Active",rera:"RERA registered"},
+  {name:"Hero Realty Kanpur Road",dev:"Hero Realty",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"Highly anticipated upcoming plotted project from the Hero Group on the fast-growing Kanpur Road corridor — one of Lucknow's most active investment corridors in 2026 with airport proximity and expressway access.",projectAddr:"Kanpur Road, Lucknow",units:"To be announced",area:"To be announced",status:"Upcoming",rera:"Registration pending"},
+  {name:"Vani Residency Phase 2",dev:"Vani Vihar Developers",type:"Plot",loc:"Sultanpur Road",price:"Affordable",desc:"Plots and row houses near Amity University on Sultanpur Road. Strong connectivity to educational institutions and the Shaheed Path–Gomti Nagar Extension corridor. Ideal for families and young buyers.",projectAddr:"Near Amity University, Sultanpur Road, Lucknow",units:"Multiple",area:"To be confirmed",status:"Active",rera:"Available on request"},
+  {name:"Vani Avenue",dev:"Vani Vihar Developers",type:"Plot",loc:"Sultanpur Road",price:"Affordable",desc:"Residential and commercial plots on Sultanpur Road with excellent Shaheed Path and Gomti Nagar Extension connectivity. Investor-friendly pricing in a corridor seeing 10–15% YoY appreciation.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"To be confirmed",status:"Active",rera:"Available on request"},
+  {name:"BSD Express City",dev:"BSD Group",type:"Plot",loc:"Kanpur Road",price:"On request",desc:"Residential and commercial plots on the Lucknow–Kanpur National Highway, approximately 10 minutes from Chaudhary Charan Singh International Airport. Strong NH connectivity for investors and end-users alike.",projectAddr:"NH-27, Kanpur Road, Lucknow",units:"Multiple",area:"Large",status:"Active",rera:"Available on request"},
+  {name:"Ansal Sushant Golf City plots",dev:"Ansal API",type:"Plot",loc:"Sushant Golf City",price:"Premium",desc:"Plots within North India's most prestigious planned community — Ansal's 3,500+ acre Sushant Golf City. Branded address, 18-hole golf course, premium social infrastructure and strong resale demand.",projectAddr:"Shaheed Path, Sushant Golf City, Lucknow – 226030",units:"Limited availability",area:"3,500+ acres (township)",status:"Ready to move / resale",rera:"RERA registered"},
+  {name:"LDA approved township plots",dev:"LDA",type:"Plot",loc:"Multiple sectors",price:"Govt. rates",desc:"Government-sanctioned plots across multiple city sectors. Transparent pricing, clear title, bank-financed and ideal for first-time buyers. LDA plots are the safest title in Lucknow's real estate market.",projectAddr:"Multiple LDA sectors, Lucknow",units:"Multiple",area:"Various",status:"Active",rera:"Government scheme"},
+  {name:"Emaar Elite Oasis",dev:"Emaar India",type:"Apartment",loc:"Gomti Nagar",price:"₹2.75 Cr – ₹4.08 Cr",desc:"Lucknow's most prestigious new launch — a 34-floor luxury high-rise by Emaar (builders of Burj Khalifa) in Gomti Nagar. Only 194 exclusive 3 & 4 BHK residences on 2.92 acres. Skyline views, world-class amenities and unmatched brand equity.",projectAddr:"Kanpur-Hardoi Bypass Road, Para Rd, Alamnagar, Rajajipuram, Lucknow – 226017",units:"194 units",area:"2.92 acres",status:"New launch – bookings open",rera:"UPRERAPRJ944123/02/2025"},
+  {name:"Shalimar One World Celestial",dev:"Shalimar Corp",type:"Apartment",loc:"Gomti Nagar Ext.",price:"From ₹1.49 Cr",desc:"Premium 3 BHK apartments in Lucknow's tallest lifestyle tower. Features the city's highest infinity pool on the 30th floor and its first skyline pickleball court. Located in the booming Gomti Nagar Extension corridor.",projectAddr:"One World, Gomti Nagar Extension, Lucknow – 226010",units:"Limited premium units",area:"Large tower",status:"Under construction",rera:"UPRERAPRJ705722/01/2024"},
+  {name:"Omaxe The Resort",dev:"Omaxe Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"₹1.9 Cr – ₹5.2 Cr",desc:"Ultra-luxury 3 & 4 BHK flats and penthouses within Omaxe's premium township in Gomti Nagar Extension. Resort-style amenities on 3 acres with top-of-the-market finishes and investment-grade positioning.",projectAddr:"Gomti Nagar Extension, Lucknow – 226010",units:"Multiple configurations",area:"3 acres",status:"Under construction",rera:"RERA registered"},
+  {name:"Eldeco Latitude 27",dev:"Eldeco Group",type:"Apartment",loc:"IIM Road",price:"₹85 L – ₹1.35 Cr",desc:"5 towers with 2, 3 and 4 BHK apartments within Eldeco's fully inhabited township on IIM Road. Established community, abundant natural light, green surroundings and excellent social infrastructure.",projectAddr:"IIM Road (Sitapur Road), Lucknow – 226021",units:"Multiple in 5 towers",area:"Large township",status:"Under construction",rera:"RERA registered"},
+  {name:"Omaxe Cassia",dev:"Omaxe Group",type:"Apartment",loc:"Kanpur Road",price:"On request",desc:"8 residential towers within Omaxe's 690-acre Metro City township on Kanpur Road. Near the airport and the upcoming Ganga Expressway. Strong investment case with township-scale amenities.",projectAddr:"Kanpur Road (NH-27), Lucknow",units:"8 towers",area:"690 acres (township)",status:"Under construction",rera:"RERA registered"},
+  {name:"Rishita Mulberry Heights",dev:"Rishita Developers",type:"Apartment",loc:"Sushant Golf City",price:"₹90 L – ₹1.6 Cr",desc:"Premium apartments at ₹8,800/sq ft in Sushant Golf City with a 6.57% price appreciation recorded in recent months. Strong resale demand. Ideal for investors looking for capital growth in Lucknow's most coveted address.",projectAddr:"Sushant Golf City, Shaheed Path, Lucknow – 226030",units:"Multiple",area:"Large",status:"Under construction",rera:"RERA registered"},
+  {name:"Purvanchal Royal Atlantis",dev:"Purvanchal Group",type:"Apartment",loc:"Gomti Nagar",price:"Luxury pricing",desc:"Ultra-spacious luxury residences by Purvanchal Group in Gomti Nagar. Premium positioning on the Sultanpur Road corridor with top-tier finishes and amenities. The Purvanchal name carries strong trust and legacy in Lucknow.",projectAddr:"Sultanpur Road, Gomti Nagar, Lucknow",units:"104 units (26 floors)",area:"1.75 acres",status:"New launch – possession Feb 2029",rera:"UPRERAPRJ546517/07/2024"},
+  {name:"Ontario – Ekana Sportz City",dev:"Ekana Group",type:"Apartment",loc:"Gomti Nagar Ext.",price:"₹1.55 Cr – ₹4.3 Cr",desc:"Premium lifestyle township adjacent to the Ekana International Cricket Stadium in Gomti Nagar Extension. Sports-integrated living, large format apartments and excellent brand visibility.",projectAddr:"Shaheed Path, Lucknow – 226030",units:"Multiple",area:"Large township",status:"Under construction",rera:"RERA registered"},
+  {name:"BP DPS Palladio",dev:"BP Infra Group",type:"Apartment",loc:"Sultanpur Road",price:"On request",desc:"308 luxury units across 4 towers of 14 floors. 2.5, 3 & 4 BHK apartments at Mastemau, Sultanpur Road. Features a luxury clubhouse, swimming pool and sports arena. Possession targeted November 2029.",projectAddr:"Mastemau, Sultanpur Road, Lucknow",units:"308 units / 4 towers / 14 floors",area:"2.71 acres",status:"New launch – possession Nov 2029",rera:"UPRERAPRJ717338/01/2025"},
+  {name:"Oro Constella",dev:"ORO Constructions",type:"Apartment",loc:"Sushant Golf City",price:"₹90 L – ₹2.6 Cr",desc:"Prestigious project at ₹8,100/sq ft on Shaheed Path with 5 BHK options available. Luxury amenities, prime Golf City address and strong builder reputation in Lucknow.",projectAddr:"Shaheed Path, Sushant Golf City, Lucknow – 226030",units:"Multiple incl. 5 BHK",area:"Large",status:"Under construction",rera:"RERA registered"},
+  {name:"Eldeco Imperia villas",dev:"Eldeco Group",type:"Row House",loc:"Sushant Golf City",price:"From ₹44 L",desc:"Expandable simplex & duplex villas in 1, 2 and 3 BHK configurations inspired by British architecture. One of the most affordable villa entry points by a premium builder in Lucknow. Possession targeted September 2028.",projectAddr:"Sarojini Nagar, Sushant Golf City, Lucknow",units:"Multiple",area:"Large gated campus",status:"Under construction – possession Sep 2028",rera:"RERA registered"},
+  {name:"Rishita Mulberry Villas",dev:"Rishita Developers",type:"Row House",loc:"Sushant Golf City",price:"Premium",desc:"3,200–5,000+ sq ft luxury villas in Sushant Golf City with over 40% appreciation in just 3 years — one of the best performing villa investments in Lucknow. RERA approved and bank financed.",projectAddr:"Sushant Golf City, Shaheed Path, Lucknow – 226030",units:"Limited luxury villas",area:"Large gated",status:"Active",rera:"RERA registered"},
+  {name:"Shalimar Garden Bay villas",dev:"Shalimar Corp",type:"Row House",loc:"IIM Road",price:"₹65 L – ₹1.1 Cr",desc:"Gated villa community by Shalimar Corp on IIM Road — one of Lucknow's most sought-after residential addresses. Premium amenities, excellent connectivity and the Shalimar brand guarantee.",projectAddr:"IIM Road, Lucknow – 226021",units:"Multiple",area:"Gated community",status:"Active",rera:"RERA registered"},
+  {name:"ORO City – The Villa",dev:"ORO Group",type:"Row House",loc:"Jankipuram",price:"From ~₹25 L",desc:"25-acre LDA-approved gated township in Jankipuram offering ready-to-move villas at one of the most affordable price points in Lucknow. PMAY-linked project ideal for first-time homebuyers.",projectAddr:"Jankipuram Extension, Lucknow – 226021",units:"Multiple",area:"25 acres",status:"Ready to move",rera:"LDA approved"},
+  {name:"Ansal Sushant Oakwood Duplex",dev:"Ansal API",type:"Row House",loc:"Sushant Golf City",price:"Premium",desc:"Duplex villas within Ansal's legendary 3,500-acre Sushant Golf City integrated township. One of Lucknow's most prestigious addresses with golf course views, branded community and strong resale market.",projectAddr:"Shaheed Path, Sushant Golf City, Lucknow – 226030",units:"Limited duplex villas",area:"3,500+ acres (township)",status:"Active",rera:"RERA registered"},
+  {name:"Pintail Park City villas",dev:"Pintail Infracon LLP",type:"Row House",loc:"Sultanpur Road",price:"On request",desc:"Eco-friendly gated villas within the 200-acre Pintail Park City smart eco-township on Sultanpur Road. Sustainable design, full community amenities and strong IT City proximity.",projectAddr:"Ahmamau, Sultanpur Road, Lucknow",units:"Part of 9,445 total units",area:"200 acres (township)",status:"Under construction",rera:"RERA registered"},
+  {name:"Lucknow Greens villas",dev:"Private Developer",type:"Row House",loc:"Near Indira Canal",price:"On request",desc:"LDA-approved 125-acre township offering premium villas in an eco-friendly green setting near the Indira Canal. Peaceful surroundings with strong civic infrastructure.",projectAddr:"Near Indira Canal, Lucknow",units:"Multiple",area:"125 acres",status:"Active",rera:"LDA approved"},
+  {name:"Woodland Paradise row houses",dev:"Rudraksh Developers",type:"Row House",loc:"Kursi Road",price:"On request",desc:"Row houses and villas adjacent to the 1,000+ acre Kukrail Forest Reserve on Kursi Road. Lush natural surroundings, clean air and peaceful living within Lucknow city limits.",projectAddr:"Kursi Road, Near Kukrail Reserve Forest, Lucknow",units:"Multiple",area:"Gated community",status:"Active",rera:"Available on request"},
+  {name:"Eldeco Solano Garden",dev:"Eldeco Group",type:"Row House",loc:"Gomti Nagar Ext.",price:"On request",desc:"Upcoming premium villa community by Eldeco in Gomti Nagar Extension. Eco-friendly gated layout with premium finishes and the Eldeco brand promise. One of the most anticipated upcoming projects in this corridor.",projectAddr:"Gomti Nagar Extension, Lucknow",units:"To be announced",area:"To be announced",status:"Upcoming",rera:"Registration pending"},
+  {name:"Shalimar Deva Road villas",dev:"Shalimar Corp",type:"Row House",loc:"Deva Road",price:"On request",desc:"Upcoming villa project by Shalimar Corp on the emerging Deva Road corridor. Modern amenities, gated security and the Shalimar brand delivering on the promise of luxury at accessible price points.",projectAddr:"Deva Road, Lucknow",units:"To be announced",area:"To be announced",status:"Upcoming",rera:"Registration pending"},
+  {name:"Sahu City Pearl Phase 2",dev:"Sahu Land Developers",type:"Apartment",loc:"Sultanpur Road",price:"From ₹40 L",desc:"1,195 apartments across 10 towers of 25 floors each in a 14-acre integrated township near HCL IT City. Recorded 2.15% price rise in Q1 2026 alone. Ideal for investors and first-time buyers in the ₹40–60 L budget range.",projectAddr:"Near HCL IT City, Sultanpur Road, Lucknow – 226301",units:"1,195 (10 towers × 25 floors)",area:"14 acres",status:"Under construction",rera:"UPRERAPRJ4655"},
+  {name:"Excella Kutumb",dev:"Excella Infra",type:"Apartment",loc:"Sultanpur Road",price:"₹42 L – ₹60 L",desc:"2 & 3 BHK luxury apartments at accessible pricing. Recorded 15.6% YoY price appreciation in 2025 — the highest of any listed society in Lucknow. RERA approved and bank financed. A top pick for investors.",projectAddr:"Sultanpur Road, Lucknow",units:"40 units",area:"Gated society",status:"Ready to move",rera:"RERA registered"},
+  {name:"Amrawati IT City",dev:"Amrawati Group",type:"Row House",loc:"Sultanpur Road",price:"From ₹2.35 Cr",desc:"49-acre landmark integrated township offering premium villas, apartments and plots. Recorded 17% price appreciation in Q2 2025. Located at ₹9,100/sq ft — the highest premium zone on Sultanpur Road.",projectAddr:"Sultanpur Road, Lucknow",units:"1,755 units",area:"49 acres",status:"Under construction – possession Jul 2026",rera:"UPRERAPRJ262828"},
+  {name:"Wing Lucknow Greens",dev:"Wing Developers",type:"Plot",loc:"Sultanpur Road",price:"₹42 L – ₹1.36 Cr",desc:"100-acre LDA-approved plotted township averaging ₹6,900/sq ft. One of the most bank-financed projects on the Sultanpur Road corridor. Ready-to-move plots in Zone 1 — the most established micro-market.",projectAddr:"Arjunganj, Sultanpur Road, Lucknow",units:"243 plots",area:"100 acres",status:"Ready to move",rera:"LDA approved"},
+  {name:"Aashrayam",dev:"Agrasheel Infra",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"23-acre gated plotted community with 276 plots ideal for weekend homes and long-term investment. Peaceful rural setting with modern infrastructure — popular with Lucknow buyers seeking a second home.",projectAddr:"Sultanpur Road, Lucknow",units:"276 plots",area:"23 acres",status:"Active",rera:"Available on request"},
+  {name:"DPS Palladio",dev:"BP Infra Group",type:"Apartment",loc:"Sultanpur Road",price:"On request",desc:"308 luxury units across 4 towers of 14 floors at Mastemau, Sultanpur Road. Luxurious 2.5, 3 & 4 BHK flats with clubhouse, swimming pool and sports arena. RERA registered and possession Nov 2029.",projectAddr:"Mastemau, Sultanpur Road, Lucknow",units:"308 (4 towers / 14 floors)",area:"2.71 acres",status:"New launch – possession Nov 2029",rera:"UPRERAPRJ717338/01/2025"},
+  {name:"Vikas Vihar Officers Enclave",dev:"Vikas Vihar Developers",type:"Apartment",loc:"Sultanpur Road",price:"₹32 L – ₹1.6 Cr",desc:"218 units in a premium residential project on Sultanpur Road. Lush green surroundings and targeted at officers, professionals and families seeking peaceful upscale living away from city congestion.",projectAddr:"Sultanpur Road, Lucknow",units:"218 units",area:"Gated",status:"Active",rera:"Available on request"},
+  {name:"Vidhi Estate",dev:"Shashikala Developers",type:"Plot",loc:"Sultanpur Road",price:"₹16 L – ₹76 L",desc:"255 residential plots amid lush green landscapes on Sultanpur Road. Ready to move. Modern architecture, clear title and one of the most affordable entry points on the corridor for self-construction.",projectAddr:"Sultanpur Road, Lucknow",units:"255 plots",area:"Medium",status:"Ready to move",rera:"Available on request"},
+  {name:"Eiffel Vivassa Estate",dev:"Eiffel Infradevelopers",type:"Apartment",loc:"Sultanpur Road",price:"On request",desc:"2, 3 & 4 BHK RERA-approved apartments on the fast-growing Sultanpur–Gomti Nagar Extension corridor. Premium lifestyle positioning with modern finishes and strong connectivity to Shaheed Path.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Gated",status:"Under construction",rera:"RERA registered"},
+  {name:"LDA IT City plots",dev:"LDA",type:"Plot",loc:"Sultanpur Road",price:"Govt. rates",desc:"Government IT City spanning 1,474 acres across 6 villages. 2,935 residential plots of 1,211–4,844 sq ft. Phase 2 lottery for the general public expected at ldalucknow.in. Among Lucknow's biggest upcoming government schemes.",projectAddr:"Bakkas & Mastemau area, Sultanpur Road, Lucknow",units:"2,935 plots planned",area:"1,474 acres",status:"Phase 1 allotted – Phase 2 upcoming",rera:"Government scheme"},
+  {name:"Sapphire Royale",dev:"Sapphire Infraventures",type:"Row House",loc:"Sultanpur Road",price:"₹24 L – ₹96 L",desc:"25-acre gated township offering residential plots from ₹23.76 L and 1/2/3 BHK simplex & duplex villas from ₹52.69 L. LDA & RERA approved (UPRERAPRJ17975). Jogging track, pool, meditation centre.",projectAddr:"Lucknow–Sultanpur Highway, Sultanpur Road – 226501",units:"Plots + villas",area:"25 acres",status:"Ready to move",rera:"UPRERAPRJ17975"},
+  {name:"Halwasiya Shivlar Sambandh",dev:"Halwasiya & Sons",type:"Row House",loc:"Sultanpur Road",price:"From ₹21 L",desc:"2 & 4 BHK independent villas by a 3-decade legacy builder in Gosainganj on Sultanpur Road. RERA & PMAY approved with roof rights included — you can extend upward as your family grows. Full amenities and 24×7 security.",projectAddr:"Gosainganj, Sultanpur Road, Lucknow",units:"Multiple villas",area:"Gated community",status:"Active",rera:"UPRERAPRJ716 (RERA & PMAY approved)"},
+  {name:"Vikas Vihar Green City",dev:"Vikas Vihar Developers",type:"Plot",loc:"Sultanpur Road",price:"From ₹35 L",desc:"754-unit picturesque plotted township on Sultanpur Road. Ready to move. Peaceful green surroundings, well-planned internal layout and a strong price appreciation trajectory aligned with the IT City corridor.",projectAddr:"Sultanpur Road, Lucknow",units:"754 plots",area:"Large",status:"Ready to move",rera:"Available on request"},
+  {name:"Purvanchal City",dev:"Purvanchal Group",type:"Plot",loc:"Sultanpur Road",price:"From ₹12 L",desc:"Ready-to-move plotted development by Purvanchal Group. 1,000 sq ft plots starting from ₹12 L — one of the most affordable LDA-area entry points on Sultanpur Road. Trusted builder with a legacy of timely delivery.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"LDA area",status:"Ready to move",rera:"Available on request"},
+  {name:"Gomti Paradise Phase 1",dev:"Gomti Developers",type:"Apartment",loc:"Sultanpur Road",price:"On request",desc:"Under-construction residential apartment community on Sultanpur Road, well-connected to Shaheed Path and the Outer Ring Road. Family-focused gated community with full lifestyle amenities planned.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Gated",status:"Under construction",rera:"Available on request"},
+  {name:"AV Square Drona Enclave",dev:"AV Square Builders",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"287 RERA-compliant plots (UPRERAPRJ13722) at an affordable price point on Sultanpur Road. Customisable plot sizes, excellent arterial road connectivity and growing corridor demand.",projectAddr:"Sultanpur Road, Lucknow",units:"287 plots",area:"Medium",status:"Under construction",rera:"UPRERAPRJ13722"},
+  {name:"Innvolve Divine City",dev:"Innvolve Infra",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"Under-construction plotted township with investor-friendly pricing on the Sultanpur Road corridor. Benefits from LDA IT City and Wellness City tailwinds — one of Lucknow's highest-appreciation corridors in 2026.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Township",status:"Under construction",rera:"Available on request"},
+  {name:"Kailasha Enclave",dev:"Baba Infra Developers",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"Customisable residential plots linked to main arterial roads. RERA registered (UPRERAPRJ418011). Possession targeted August 2025. Affordable entry-level investment on Sultanpur Road.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Gated",status:"Possession Aug 2025",rera:"UPRERAPRJ418011"},
+  {name:"Swastik Villas",dev:"Swastik Housing India",type:"Row House",loc:"Sultanpur Road",price:"₹47 L – ₹69 L",desc:"33 semi-duplex 3 BHK modern villas at Kabirpur on Sultanpur Road. Ready to move. Private terrace/garden, private garage, DTH & Wi-Fi, vastu-compliant layout. Near Purvanchal Expressway.",projectAddr:"Kabirpur, Sultanpur Road, Lucknow – 226501",units:"33 villas",area:"2 bigha",status:"Ready to move",rera:"Available on request"},
+  {name:"Varda Gardenia",dev:"Varda Group",type:"Apartment",loc:"Sultanpur Road",price:"From ₹35.75 L",desc:"2 & 3 BHK apartments in 1,100–1,525 sq ft on Sultanpur Road in the Mohanlalganj micro-market. Ready to move. Clubhouse, power backup and covered parking. Among the most affordable ready-to-move flats on the corridor.",projectAddr:"Sultanpur Road, Mohanlalganj, Lucknow",units:"Multiple",area:"Medium",status:"Ready to move",rera:"Available on request"},
+  {name:"Pingaksh Niketan",dev:"Pingaksh Constructions",type:"Row House",loc:"Sultanpur Road",price:"On request",desc:"Ready-to-move 3 BHK villas of 1,560 sq ft on Shaheed Path–Sultanpur Road. Full lifestyle amenities included. Ideal for families looking to upgrade from an apartment to an independent villa with a garden.",projectAddr:"Shaheed Path, Sultanpur Road, Lucknow",units:"Multiple",area:"Gated",status:"Ready to move",rera:"Available on request"},
+  {name:"The Palm Town",dev:"Trustus Group",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"Customisable residential plots on Sultanpur Road, well-linked to the main corridor and expressways. Ideal for self-construction, gifting, or long-term land banking on an appreciating corridor.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Medium",status:"Active",rera:"Available on request"},
+  {name:"Amrawati Midtown",dev:"Amrawati Group",type:"Apartment",loc:"Sultanpur Road",price:"On request",desc:"8-acre exclusive apartment project on Sultanpur Road directly connected to Shaheed Path. A sibling project of the acclaimed Amrawati IT City township. Mid-segment pricing with township-quality amenities.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"8 acres",status:"Under construction",rera:"Available on request"},
+  {name:"Shri Balaji BCC Sapphire",dev:"Shri Balaji Constructions",type:"Apartment",loc:"Sultanpur Road",price:"On request",desc:"218 units of premium residential apartments with modern amenities on the Sultanpur Road corridor. RERA approved. An emerging mid-market project benefiting from the IT City and Wellness City growth drivers.",projectAddr:"Sultanpur Road, Lucknow",units:"218 units",area:"Gated",status:"Under construction",rera:"RERA registered"},
+  {name:"IQ Lifestyle Plaza",dev:"IQ Builders",type:"Apartment",loc:"Sultanpur Road",price:"₹21 L – ₹27 L",desc:"Budget 1 & 2 BHK apartments at ₹21–27 L on Sultanpur Road — one of the most affordable new-build options on this corridor. Compact, practical units ideal for first-time buyers and rental investors.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Medium",status:"Active",rera:"Available on request"},
+  {name:"Rohtas Crescent Farms",dev:"Rohtas Projects Ltd",type:"Plot",loc:"Sultanpur Road",price:"From ₹15 L",desc:"Acre-scheme residential plots by the established Rohtas Group. Highway-facing project with 150 sq yard plots. Assured buyback option available. From one of Lucknow's most recognisable property brands.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Large",status:"Active",rera:"Available on request"},
+  {name:"YTT Life and Joy",dev:"YTT Developers",type:"Apartment",loc:"Sultanpur Road",price:"On request",desc:"Contemporary residential apartments in a gated community on Sultanpur Road. Premium lifestyle amenities and strong capital appreciation potential on one of Lucknow's fastest-rising corridors.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Gated",status:"Under construction",rera:"Available on request"},
+  {name:"Awadh Paradise Town",dev:"Awadh Developers",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"Plotted township with easy access to the Purvanchal Expressway. Affordable self-construction plots in a growing residential micro-market on Sultanpur Road with improving civic infrastructure.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Township",status:"Active",rera:"Available on request"},
+  {name:"Srinivasa City",dev:"Srinivasa Developers",type:"Plot",loc:"Sultanpur Road",price:"On request",desc:"LDA-area residential plotted community on Sultanpur Road. Well-planned internal layout with roads, drainage and greenery. Investor-friendly pricing in a corridor recording 10–15% YoY appreciation.",projectAddr:"Sultanpur Road, Lucknow",units:"Multiple",area:"Medium",status:"Active",rera:"Available on request"},
+  {name:"LDA Wellness City",dev:"LDA",type:"Plot",loc:"Sultanpur Road",price:"Govt. rates",desc:"1,474-acre mega government scheme across 6 villages (Bakkas, Charahiya, Chairasi, Malukpur, Dularmau, Noorpur Behta). 2,935 residential plots of 1,211–4,844 sq ft. Site offices open, road marking commenced. Lottery date to be announced at ldalucknow.in.",projectAddr:"6 villages, Sultanpur Road, Lucknow",units:"2,935 plots planned",area:"1,474 acres",status:"Site offices open – lottery upcoming",rera:"Government scheme"},
+  {name:"Mandakini Vihar",dev:"R.R. Infracity",type:"Plot",loc:"Amethi, Sultanpur Road",price:"On request",desc:"Premium gated plotted township by R.R. Infracity Pvt. Ltd. at Amethi on Sultanpur Road. Designed for privacy, a pollution-free environment and an unhurried pace of life amidst lush greenery. Wide roads, proper drainage, street lighting, park, tree plantation, 24×7 security and a shopping area within the campus.",projectAddr:"Amethi, Sultanpur Road, Lucknow, Uttar Pradesh",units:"Multiple residential plots",area:"Gated township",status:"Active / ongoing",rera:"Verify on up-rera.in"},
+
+  // Amethi / nearby Mandakini Vihar projects
+  {name:"Panchvati Premium Township",dev:"Panchvati Developers",type:"Plot",loc:"Amethi, Sultanpur Road",price:"₹15 L – ₹1.8 Cr",desc:"60+ acre gated township between two expressways — Sultanpur Road (1 km) and Purvanchal Expressway (2 km). RERA registered (UPRERAPRJ10646) and Zila Panchayat approved. Plot sizes 800–10,000 sq ft. Wide 30–40 ft internal roads, 24+ parks, electricity & drainage ready, instant registry, bank loan approved.",projectAddr:"Near Amethi Market, Gosaiganj, Sultanpur Road, Lucknow",units:"Multiple plots (800–10,000 sq ft)",area:"60+ acres",status:"Active – ready to move",rera:"UPRERAPRJ10646"},
+  {name:"Shine City Xhevahire City I",dev:"Shine City Infra",type:"Plot",loc:"Amethi, Sultanpur Road",price:"₹6 L – ₹24 L",desc:"Affordable gated plotted community at Anoop Ganj Railway Crossing on Sultanpur Road. Ready-to-move plots with a full amenity package — clubhouse, gym, swimming pool, school, hospital/clinic, landscaped gardens, rainwater harvesting and 24×7 security. One of the most affordable builder-grade projects in this belt.",projectAddr:"Anoop Ganj Railway Crossing, Sultanpur Road, Lucknow",units:"Multiple plots",area:"Gated township",status:"Ready to move",rera:"Verify on up-rera.in"},
+  {name:"Laxmi Vihar",dev:"DS Infra Developers",type:"Plot",loc:"Amethi, Sultanpur Road",price:"From ₹8 L",desc:"Jila Panchayat approved residential plots on the Gosaiganj–Barabanki 4-lane road, 3 km from Sultanpur Highway. Immediate registry and possession. EMI option: ₹8 L upfront + ₹22,222/month over 3 years. Fully developed gated community — boundary wall, electricity, drainage and garden areas all ready. 500+ families served since 2020.",projectAddr:"Near Gosaiganj, 3 km from Sultanpur Highway, Lucknow",units:"Multiple plot sizes",area:"Gated township",status:"Ready to move – immediate possession",rera:"Jila Panchayat approved"},
+  {name:"Sky City",dev:"Sky City Developers",type:"Plot",loc:"Amethi, Sultanpur Road",price:"On request",desc:"Residential plotted development listed among the top projects in the Amethi micro-market on Sultanpur Road. Located 150 m from the Lucknow–Sultanpur Highway. Ideal location close to the Purvanchal Expressway junction. Growing corridor with strong land appreciation.",projectAddr:"Near Amethi Market, Sultanpur Road, Lucknow",units:"Multiple",area:"Gated",status:"Active",rera:"Verify on up-rera.in"},
+  {name:"Lakshmi Vihar",dev:"Lakshmi Vihar Developers",type:"Plot",loc:"Amethi, Sultanpur Road",price:"₹12.79 L – ₹39.98 L",desc:"Well-priced residential plots of 800–2,500 sq ft on Sultanpur Road near Gosaiganj. Gated community with park, internal street lighting and 24×7 security. One of the most accessible plot options in the Amethi belt with immediate possession available.",projectAddr:"Sultanpur Road, Near Gosaiganj, Lucknow",units:"Multiple (800–2,500 sq ft)",area:"Gated",status:"Ready to move",rera:"Verify on up-rera.in"}
 ];
 
-const typeIcons = {Plot:'🟧',Apartment:'🟦','Row House':'🟪'};
-const typeLabels = {'Row House':'Villa / row house'};
-
-let activeType = 'all';
+const typeIcons={Plot:'🟧',Apartment:'🟦','Row House':'🟪'};
+const typeLabels={'Row House':'Villa / row house'};
+let activeType='all';
 
 function populateDropdowns(){
-  const locs = [...new Set(projects.map(p=>p.loc))].sort();
-  const devs = [...new Set(projects.map(p=>p.dev))].sort();
-  const ls = document.getElementById('loc-filter');
-  const bs = document.getElementById('builder-filter');
+  const locs=[...new Set(projects.map(p=>p.loc))].sort();
+  const devs=[...new Set(projects.map(p=>p.dev))].sort();
+  const ls=document.getElementById('loc-filter'),bs=document.getElementById('builder-filter');
   locs.forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=l;ls.appendChild(o);});
   devs.forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;bs.appendChild(o);});
 }
@@ -358,12 +398,9 @@ function applyFilters(){
 
 function renderCards(list){
   const grid=document.getElementById('card-grid');
-  if(list.length===0){
-    grid.innerHTML='<div class="empty"><div class="empty-icon">🔍</div>No projects match your filters.<br><span style="font-size:12px;opacity:0.7;">Try changing or resetting your selections.</span></div>';
-    return;
-  }
-  grid.innerHTML=list.map(p=>`
-    <div class="card ${cardClass(p.type)}">
+  if(!list.length){grid.innerHTML='<div class="empty">🔍<br>No projects match your filters.<br><span style="font-size:12px;opacity:.7">Try changing or resetting your selections.</span></div>';return;}
+  grid.innerHTML=list.map((p,i)=>`
+    <div class="card ${cardClass(p.type)}" onclick="openModal(${projects.indexOf(p)})">
       <div class="card-head">
         <div class="card-name">${p.name}</div>
         <span class="type-badge ${badgeClass(p.type)}">${typeIcons[p.type]} ${typeLabels[p.type]||p.type}</span>
@@ -373,9 +410,9 @@ function renderCards(list){
         <span class="meta-pill">📍 ${p.loc}</span>
         <span class="price-pill">₹ ${p.price}</span>
       </div>
-      <div class="card-desc">${p.desc}</div>
-    </div>
-  `).join('');
+      <div class="card-desc">${p.desc.substring(0,120)}…</div>
+      <div class="card-cta">View full details →</div>
+    </div>`).join('');
 }
 
 function setType(type,btn){
@@ -397,6 +434,60 @@ function resetAll(){
   document.querySelectorAll('.chip')[0].className='chip active-all';
   applyFilters();
 }
+
+function openModal(idx){
+  const p=projects[idx];
+  const c=devContacts[p.dev]||{office:'Contact developer directly',phone:'On request',email:'',web:''};
+  const banner=document.getElementById('modal-banner');
+  banner.className='modal-banner '+cardClass(p.type);
+  document.getElementById('modal-title').textContent=p.name;
+  document.getElementById('modal-badges').innerHTML=`
+    <span class="type-badge ${badgeClass(p.type)}">${typeIcons[p.type]} ${typeLabels[p.type]||p.type}</span>
+    <span class="meta-pill">📍 ${p.loc}</span>
+    <span class="price-pill">₹ ${p.price}</span>
+    <span class="meta-pill">🏗️ ${p.dev}</span>`;
+  const rera=document.getElementById('modal-rera');
+  if(p.rera&&p.rera!=='Available on request'){
+    rera.innerHTML=`<div class="rera-strip">✅ <strong>RERA:</strong> ${p.rera}</div>`;
+  } else {
+    rera.innerHTML=`<div class="rera-strip" style="background:#fff8ea;border-color:#fddfa0;color:#7a4f00;">⚠️ <strong>RERA:</strong> ${p.rera||'Verify on up-rera.in before booking'}</div>`;
+  }
+  document.getElementById('modal-desc').textContent=p.desc;
+  document.getElementById('modal-info').innerHTML=`
+    <div class="info-box"><div class="lbl">Project address</div><div class="val">${p.projectAddr}</div></div>
+    <div class="info-box"><div class="lbl">Total units</div><div class="val">${p.units}</div></div>
+    <div class="info-box"><div class="lbl">Project area</div><div class="val">${p.area}</div></div>
+    <div class="info-box"><div class="lbl">Status</div><div class="val">${p.status}</div></div>`;
+  const ams=amenitiesMap[p.type]||[];
+  document.getElementById('modal-amenities').innerHTML=ams.map(a=>`<span class="amenity-tag">${a}</span>`).join('');
+  document.getElementById('modal-contact').innerHTML=`
+    <div class="contact-box">
+      <div class="lbl">📍 Office / site address</div>
+      <div class="addr">${c.office}</div>
+      ${c.phone?`<div class="phone">📞 ${c.phone}</div>`:''}
+      ${c.email?`<div class="email">✉️ ${c.email}</div>`:''}
+    </div>
+    <div class="contact-box">
+      <div class="lbl">🗺️ How to find it</div>
+      <div class="addr">Search <strong>"${p.name} Lucknow"</strong> on Google Maps for directions to the site office or project location.</div>
+      ${c.web?`<div style="margin-top:8px;"><a href="${c.web}" target="_blank" style="color:#4a6cf7;font-size:12px;font-weight:600;">🌐 Visit website →</a></div>`:''}
+    </div>`;
+  document.getElementById('modal-actions').innerHTML=`
+    <button class="btn-primary" onclick="window.open('tel:${c.phone.replace(/[^+\d]/g,'')}')">📞 Call now</button>
+    <button class="btn-secondary" onclick="window.open('https://wa.me/${c.phone.replace(/[^+\d]/g,'').replace('+','')}?text=Hi, I am interested in ${encodeURIComponent(p.name)}, Lucknow. Please share details.')">💬 WhatsApp</button>
+    <button class="btn-secondary" onclick="window.open('https://maps.google.com?q=${encodeURIComponent(p.name+' '+p.loc+' Lucknow')}')">🗺️ Get directions</button>`;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(e){
+  if(e.target===document.getElementById('modal-overlay'))closeModalDirect();
+}
+function closeModalDirect(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect();});
 
 populateDropdowns();
 renderCards(projects);
