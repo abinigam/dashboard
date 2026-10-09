@@ -1,689 +1,118 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nigam Cinematics — Cinematic AI Video for High-Ticket Brands</title>
-<meta name="description" content="AI-generated video ads and luxury real estate walkthroughs for high-ticket brands. Delivered in 48 hours.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23050505'/%3E%3Ctext x='50' y='68' font-size='60' font-family='Georgia,serif' fill='%23D4AF37' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<!-- FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          ink: '#050505',
-          panel: '#0b0b0c',
-          gold: '#D4AF37',
-          'gold-soft': '#EBD48A',
-          'gold-deep': '#8A6E1F',
-          copper: '#C97C3D',
-          'copper-soft': '#E3A46B',
-          teal: '#1F5C56',
-          'teal-soft': '#6ED4C7',
-          wine: '#7A2E42',
-          'wine-soft': '#E08CA6',
-          plum: '#3B1F3F',
-          line: 'rgba(255,255,255,0.08)',
-        },
-        fontFamily: {
-          display: ['"Space Grotesk"', 'sans-serif'],
-          body: ['Inter', 'sans-serif'],
-          mono: ['"IBM Plex Mono"', 'monospace'],
-        },
-      }
-    }
-  }
-</script>
-
-<style>
-  html { scroll-behavior: smooth; }
-  body { background-color: #050505; }
-
-  ::selection { background: #D4AF37; color: #050505; }
-
-  /* Thin gold scrollbar */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: #050505; }
-  ::-webkit-scrollbar-thumb { background: #3a3324; border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: #8A6E1F; }
-
-  /* Film grain overlay */
-  .grain::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    pointer-events: none;
-    opacity: 0.05;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .glass {
-    background: rgba(255,255,255,0.035);
-    border: 1px solid var(--tw-border-opacity, rgba(255,255,255,0.08));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .text-glow { text-shadow: 0 0 30px rgba(212,175,55,0.35); }
-
-  .gold-gradient-text {
-    background: linear-gradient(120deg, #EBD48A 0%, #D4AF37 45%, #8A6E1F 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  header.is-scrolled {
-    background: rgba(5,5,5,0.72);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 10px 30px -15px rgba(0,0,0,0.6);
-  }
-
-  .tabular { font-variant-numeric: tabular-nums; }
-
-  /* iOS Safari counts the address bar in 100vh, cutting off hero content.
-     svh (small viewport height) excludes it; vh stays as the fallback for older browsers. */
-  .hero-h { min-height: 100vh; min-height: 100svh; }
-
-  .rec-dot { animation: recPulse 1.6s ease-in-out infinite; }
-  @keyframes recPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.35; transform: scale(0.8); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1);
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  .card-hover {
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
-  }
-  .card-hover:hover { transform: translateY(-4px); }
-
-  .glow-gold:hover   { border-color: rgba(212,175,55,0.55); box-shadow: 0 0 50px -12px rgba(212,175,55,0.35); }
-  .glow-copper:hover { border-color: rgba(201,124,61,0.55); box-shadow: 0 0 50px -12px rgba(201,124,61,0.4); }
-  .glow-teal:hover   { border-color: rgba(94,196,182,0.5);  box-shadow: 0 0 50px -12px rgba(31,92,86,0.55); }
-  .glow-wine:hover   { border-color: rgba(224,140,166,0.5); box-shadow: 0 0 50px -12px rgba(122,46,66,0.5); }
-
-  .btn-primary {
-    transition: box-shadow 0.35s ease, transform 0.25s ease, background 0.35s ease;
-  }
-  .btn-primary:hover {
-    box-shadow: 0 0 45px -8px rgba(212,175,55,0.65);
-    transform: translateY(-2px);
-  }
-
-  .link-underline {
-    position: relative;
-  }
-  .link-underline::after {
-    content: "";
-    position: absolute;
-    left: 0; bottom: -4px;
-    width: 0%;
-    height: 1px;
-    background: #D4AF37;
-    transition: width 0.35s ease;
-  }
-  .link-underline:hover::after { width: 100%; }
-
-  .timeline-line {
-    background: linear-gradient(90deg,
-      rgba(31,92,86,0) 0%, rgba(94,196,182,0.55) 18%,
-      rgba(212,175,55,0.6) 50%,
-      rgba(201,124,61,0.55) 82%, rgba(201,124,61,0) 100%);
-  }
-
-  .marquee {
-    width: max-content;
-    animation: marquee-scroll 26s linear infinite;
-  }
-  @keyframes marquee-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid #D4AF37;
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
-    .rec-dot { animation: none !important; }
-    .marquee { animation: none !important; transform: none !important; }
-    .marquee span[aria-hidden] { display: none !important; }
-    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-  }
-
-  .skip-link {
-    position: absolute; left: -9999px; top: 0; z-index: 100;
-    background: #D4AF37; color: #050505; padding: 10px 16px; font-weight: 600;
-  }
-  .skip-link:focus { left: 12px; top: 12px; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a12">
+  <title>Nigam Cinematics — Human Vision. AI Possibilities.</title>
+  <meta name="description" content="Founder-led AI production studio creating cinematic video ads, brand films and real estate visualisations. Work directly with Abhishek Nigam, from concept to final cut.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nigam Cinematics — Human Vision. AI Possibilities.">
+  <meta property="og:description" content="Cinematic video ads and brand films. Human-directed. AI-powered.">
+  <meta property="og:image" content="images/tanishq.jpg">
+  <link rel="icon" type="image/png" href="images/logos.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="refinements.css">
+  <script src="script.js" defer></script>
 </head>
-
-<body class="grain bg-ink text-white font-body antialiased selection:bg-gold selection:text-ink">
-
-<!-- Ambient color-grade wash: teal + copper + wine blooms behind all content, sits above the flat black canvas -->
-<div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10" style="background:
-  radial-gradient(1000px 800px at 10% 0%, rgba(31,92,86,0.38), transparent 55%),
-  radial-gradient(1000px 800px at 92% 30%, rgba(201,124,61,0.24), transparent 55%),
-  radial-gradient(900px 700px at 50% 100%, rgba(122,46,66,0.28), transparent 55%),
-  radial-gradient(700px 600px at 80% 95%, rgba(31,92,86,0.2), transparent 55%);"></div>
-
-<a href="#main" class="skip-link">Skip to content</a>
-
-<!-- ============ HEADER ============ -->
-<header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="flex items-center justify-between h-20">
-
-    <a href="#main" class="flex items-center gap-3 group">
-      <!-- Image Logo Placeholder -->
-      <img src="logos.png" alt="Nigam Cinematics Logo" class="h-12 w-auto object-contain">
-  
-      <!-- Optional Text next to logo (hidden on mobile, visible on desktop) -->
-      <span class="font-display text-sm sm:text-base tracking-[0.25em] uppercase hidden sm:block">
-        Nigam <span class="text-gold-soft">Cinematics</span>
-      </span>
-    </a>
-
-      <nav class="hidden md:flex items-center gap-10 text-sm tracking-[0.15em] uppercase text-white/70">
-        <a href="#work" class="link-underline hover:text-white transition-colors">Work</a>
-        <a href="#why" class="link-underline hover:text-white transition-colors">Why Us</a>
-        <a href="#process" class="link-underline hover:text-white transition-colors">Process</a>
-        <a href="#contact" class="link-underline hover:text-white transition-colors">Contact</a>
-      </nav>
-
-      <div class="hidden md:block">
-        <a href="https://wa.me/919235600936?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project"
-           class="btn-primary inline-flex items-center gap-2 bg-gold text-ink font-semibold text-sm tracking-wide px-6 py-3 rounded-full">
-          <i class="fa-brands fa-whatsapp"></i> Start Project
-        </a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#main" aria-label="Nigam Cinematics home"><img src="images/logos.png" alt="" width="1680" height="941"><span>NIGAM<small>CINEMATICS</small></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#founder">Founder</a><a href="#process">Process</a></nav>
+      <a class="header-contact" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#work">Work <span aria-hidden="true">↗</span></a><a href="#services">Services <span aria-hidden="true">↗</span></a><a href="#founder">Founder <span aria-hidden="true">↗</span></a><a href="#process">Process <span aria-hidden="true">↗</span></a><a href="#contact">Start a project <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-art" aria-hidden="true"><div class="orb-halo"></div><canvas id="orbital-canvas"></canvas><div class="orbital-track"></div><div class="orbital-emblem"><img src="images/logos.png" alt="" width="1680" height="941"></div><div class="orb-cross cross-one">+</div><div class="orb-cross cross-two">+</div><span class="orb-caption">IMAGINED BY HUMANS / CREATED WITH AI</span></div>
+      <div class="hero-inner">
+        <p class="eyebrow hero-eyebrow"><span class="status-dot" aria-hidden="true"></span> INDEPENDENT AI PRODUCTION STUDIO</p>
+        <h1 id="hero-title">Cinematic ads.<br><span>Reimagined.</span></h1>
+        <p class="hero-description">AI-powered brand films, property visuals and social ads.<br>From your first idea to a film that feels like your brand.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#contact">Start a project <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#work"><span class="tiny-play" aria-hidden="true">▶</span> Watch our work</a></div>
+        <div class="hero-note"><span class="note-line" aria-hidden="true"></span><p>Human direction. AI possibilities.<br>One creative partner, from concept to final cut.</p></div>
       </div>
+      <div class="hero-bottom"><span>CONCEPT → CREATION → FINAL CUT</span><a href="#work">SCROLL TO DISCOVER <span aria-hidden="true">↓</span></a><span class="hero-location">LUCKNOW, INDIA / CREATING EVERYWHERE</span></div>
+    </section>
+    <nav class="capability-strip" aria-label="Explore our services"><span class="strip-label">WHAT WE CREATE</span><a href="#contact" data-service="A brand or product film">Brand &amp; product films <span aria-hidden="true">↗</span></a><a href="#contact" data-service="A real estate visualisation">Real estate visuals <span aria-hidden="true">↗</span></a><a href="#contact" data-service="Short ads for social campaigns">Social campaigns <span aria-hidden="true">↗</span></a></nav>
 
-      <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden text-white text-xl">
-        <i id="menuIcon" class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden glass border-t border-line">
-    <div class="px-6 py-6 flex flex-col gap-5 text-sm tracking-[0.15em] uppercase text-white/80">
-      <a href="#work" class="hover:text-gold-soft">Work</a>
-      <a href="#why" class="hover:text-gold-soft">Why Us</a>
-      <a href="#process" class="hover:text-gold-soft">Process</a>
-      <a href="#contact" class="hover:text-gold-soft">Contact</a>
-      <a href="https://wa.me/919235600936?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project"
-         class="mt-2 inline-flex justify-center items-center gap-2 bg-gold text-ink font-semibold px-6 py-3 rounded-full">
-        <i class="fa-brands fa-whatsapp"></i> Start Project
-      </a>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-
-  <!-- ============ HERO ============ -->
-  <section class="hero-h relative flex items-end overflow-hidden">
-
-    <!-- Cinematic background: static poster on all screens (also the mobile background),
-         upgraded to a live looping reel on tablet/desktop only — see script at bottom -->
-    <div id="heroMedia" class="absolute inset-0 z-0 overflow-hidden bg-ink">
-      <!-- HERO VIDEO UPDATED HERE -->
-      <div class="absolute inset-0 bg-cover bg-center"
-           style="background-image:url('https://img.youtube.com/vi/qow1Ch2rbtM/maxresdefault.jpg');"
-           data-hero-video-id="qow1Ch2rbtM"></div>
-    </div>
-
-    <!-- Darken + color-grade the footage so text stays legible and on-brand -->
-    <div class="absolute inset-0 z-[1]" style="background:
-      linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.35) 30%, rgba(5,5,5,0.92) 100%),
-      radial-gradient(1100px 700px at 12% 0%, rgba(31,92,86,0.4), transparent 60%),
-      radial-gradient(1100px 700px at 95% 100%, rgba(201,124,61,0.32), transparent 60%);"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-20 sm:pb-24 pt-40 w-full">
-
-      <div class="reveal inline-flex items-center gap-3 font-mono text-xs tracking-[0.2em] text-gold-soft/90 border border-line rounded-full px-4 py-2 mb-8 bg-ink/40 backdrop-blur-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-red-500 rec-dot"></span>
-        REC <span id="timecode" class="tabular">00:00:00:00</span>
-        <span class="text-white/30">|</span> AI PRODUCTION STUDIO
+    <section id="work" class="section work-section" aria-labelledby="work-title">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span class="section-index">01</span> SELECTED WORK</p><h2 id="work-title">Ideas, brought<br><span class="muted-heading">into focus.</span></h2></div><div class="heading-aside"><p>Jewellery. Places. Products. Possibilities.<br>A selection of AI-assisted concept films and visual stories.</p><a class="text-link" href="https://www.youtube.com/@nigamcinematics" target="_blank" rel="noopener noreferrer">Explore the channel <span aria-hidden="true">↗</span></a></div></div>
+      <article id="featured-short" class="featured-short reveal" aria-labelledby="short-title">
+        <div class="short-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> FEATURED SHORT / REAL ESTATE</p>
+          <h3 id="short-title">Jaanki<br><span class="gradient-text">Corporate Tower.</span></h3>
+          <p class="short-description">A luxury walkthrough, framed for the vertical feed.</p>
+          <a class="button button-outline" href="#contact" data-service="A real estate visualisation">Create a film for your property <span aria-hidden="true">↗</span></a>
+          <a class="text-link short-youtube-link" href="https://www.youtube.com/shorts/MGtX3t7aK2E" target="_blank" rel="noopener noreferrer">Watch this Short on YouTube <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="short-player">
+          <iframe src="https://www.youtube-nocookie.com/embed/MGtX3t7aK2E?rel=0" title="Jaanki Corporate Tower — Luxury Walkthrough by Nigam Cinematics" width="288" height="512" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+      </article>
+      <div class="work-toolbar"><p class="mono">THE PORTFOLIO / 06 FILMS + 01 SHORT</p><div class="work-filters" role="group" aria-label="Filter portfolio"><button type="button" class="filter-button active" data-filter="all" aria-pressed="true">All work</button><button type="button" class="filter-button" data-filter="jewellery" aria-pressed="false">Jewellery</button><button type="button" class="filter-button" data-filter="real-estate" aria-pressed="false">Real estate</button><button type="button" class="filter-button" data-filter="other" aria-pressed="false">More</button></div></div>
+      <p id="filter-status" class="sr-only" role="status" aria-live="polite"></p>
+      <div class="work-grid">
+        <article class="film-card reveal" data-category="jewellery">
+          <button class="film-image play-film" type="button" data-video="LB0pGVsFCS0" data-title="Tanishq — Independent concept film" data-description="An independent jewellery concept exploring emotion, milestones and connection. Not an official Tanishq advertisement." aria-label="Watch Tanishq independent concept film"><img src="images/tanishq.jpg" alt="Jewellery concept film with a cinematic warm colour palette" width="1280" height="720" loading="lazy"><span class="film-shade"></span><span class="play-circle" aria-hidden="true"><span>▶</span> Watch film</span><span class="film-duration">01:14</span></button>
+          <div class="film-info"><div><p class="mono">JEWELLERY / BRAND STORY</p><h3>Tanishq</h3></div><span class="card-number" aria-hidden="true">01</span></div><p class="film-description">Jewellery meets emotion in an independent brand concept.</p>
+        </article>
+        <article class="film-card reveal" data-category="real-estate">
+          <button class="film-image play-film" type="button" data-video="XXkZAzN8YDo" data-title="Corporate Tower — Real estate visualisation" data-description="A cinematic visualisation of a corporate real estate development. Contact the studio to discuss a film for your project." aria-label="Watch Corporate Tower real estate visualisation"><img src="images/tower.jpg" alt="Corporate tower real estate visualisation" width="1280" height="720" loading="lazy"><span class="film-shade"></span><span class="play-circle" aria-hidden="true"><span>▶</span> Watch film</span><span class="film-duration">01:23</span></button>
+          <div class="film-info"><div><p class="mono">REAL ESTATE / ARCHITECTURAL STORY</p><h3>Corporate Tower</h3></div><span class="card-number" aria-hidden="true">02</span></div><p class="film-description">A new perspective on a place with possibility.</p>
+        </article>
+        <article class="film-card reveal" data-category="other">
+          <button class="film-image play-film" type="button" data-video="7kDpoxgapvo" data-title="IDFC FIRST Bank — Independent concept ad" data-description="An independent financial-services advertising concept. Not an official IDFC FIRST Bank advertisement." aria-label="Watch IDFC FIRST Bank independent concept ad"><img src="images/bank.jpg" alt="Financial services concept advertisement still" width="1280" height="720" loading="lazy"><span class="film-shade"></span><span class="play-circle" aria-hidden="true"><span>▶</span> Watch film</span><span class="film-duration">00:44</span></button>
+          <div class="film-info"><div><p class="mono">FINANCIAL SERVICES / VIDEO AD</p><h3>IDFC FIRST Bank</h3></div><span class="card-number" aria-hidden="true">03</span></div><p class="film-description">A focused financial-services concept with a human story.</p>
+        </article>
+        <article class="film-card reveal" data-category="real-estate">
+          <button class="film-image play-film" type="button" data-video="gNB8J_PbGhU" data-title="Township Reveal — Real estate visualisation" data-description="A visual walkthrough exploring land, connectivity and development on Sultanpur Road." aria-label="Watch Township Reveal real estate visualisation"><img src="images/township.jpg" alt="Township and land development visualisation" width="1280" height="720" loading="lazy"><span class="film-shade"></span><span class="play-circle" aria-hidden="true"><span>▶</span> Watch film</span></button>
+          <div class="film-info"><div><p class="mono">REAL ESTATE / WALKTHROUGH</p><h3>Township Reveal</h3></div><span class="card-number" aria-hidden="true">04</span></div><p class="film-description">Turning a location into a visual narrative.</p>
+        </article>
+        <article class="film-card reveal" data-category="jewellery">
+          <button class="film-image play-film" type="button" data-video="q5s627QJA3M" data-title="Puneet Ornaments — Jewellery concept" data-description="A product-led jewellery visual created for a festive social campaign." aria-label="Watch Puneet Ornaments jewellery concept"><img src="images/jewellery.jpg" alt="Festive jewellery product film still" width="1280" height="720" loading="lazy"><span class="film-shade"></span><span class="play-circle" aria-hidden="true"><span>▶</span> Watch film</span><span class="film-duration">00:23</span></button>
+          <div class="film-info"><div><p class="mono">JEWELLERY / SOCIAL CAMPAIGN</p><h3>Puneet Ornaments</h3></div><span class="card-number" aria-hidden="true">05</span></div><p class="film-description">A small moment. A story made for the social feed.</p>
+        </article>
+        <article class="film-card reveal" data-category="other">
+          <button class="film-image play-film" type="button" data-video="6EMWJ6o0Pgg" data-title="Luxe & Locks — Independent salon concept" data-description="An independent premium salon concept commercial created for social feeds." aria-label="Watch Luxe and Locks independent salon concept"><img src="images/salon.jpg" alt="Premium salon lifestyle concept film still" width="1280" height="720" loading="lazy"><span class="film-shade"></span><span class="play-circle" aria-hidden="true"><span>▶</span> Watch film</span><span class="film-duration">00:27</span></button>
+          <div class="film-info"><div><p class="mono">LIFESTYLE / SOCIAL AD</p><h3>Luxe &amp; Locks</h3></div><span class="card-number" aria-hidden="true">06</span></div><p class="film-description">A premium salon world, imagined for the screen.</p>
+        </article>
       </div>
+      <div class="portfolio-note"><span class="status-dot" aria-hidden="true"></span><p>Independent concepts demonstrate production style. Brand names identify the subject of each film and do not imply endorsement.</p></div>
+    </section>
 
-      <h1 class="reveal font-display font-semibold tracking-tight leading-[0.95] text-5xl sm:text-7xl lg:text-8xl max-w-4xl">
-        Cinematic Visuals
-        <span class="block gold-gradient-text text-glow">Engineered for High-Ticket Brands.</span>
-      </h1>
+    <section id="services" class="section studio-section" aria-labelledby="studio-title">
+      <div class="studio-grid"><div class="studio-copy reveal"><p class="eyebrow"><span class="section-index">02</span> OUR SERVICES</p><h2 id="studio-title">Your next idea.<br><span class="gradient-text">Our next creation.</span></h2><p class="body-large">Technology opens the door.<br>Creative direction makes it a story.</p><p>Nigam Cinematics is an independent, founder-led production studio. We combine generative visuals with deliberate scripting, editing, sound and pacing to create films that feel like your brand.</p><a class="text-link" href="#founder">Meet the person behind the frames <span aria-hidden="true">↗</span></a></div><div class="studio-visual reveal" aria-hidden="true"><div class="visual-coordinate coordinate-top">VISION / IN MOTION</div><div class="infinity-form"><span></span><span></span><span></span><span></span><span></span></div><div class="visual-coordinate coordinate-bottom"><span>HUMAN DIRECTION</span><span>AI CREATION</span></div></div></div>
+      <div class="capabilities"><article class="reveal"><span class="capability-icon" aria-hidden="true">✳</span><span class="mono">01 / BRAND FILMS</span><h3>Build a world <br>around your brand.</h3><p>Product launches, jewellery stories and cinematic campaigns shaped around your audience.</p><a class="text-link service-link" href="#contact" data-service="A brand or product film">Discuss this service <span aria-hidden="true">↗</span></a></article><article class="reveal"><span class="capability-icon" aria-hidden="true">⌁</span><span class="mono">02 / REAL ESTATE</span><h3>Make a place <br>feel possible.</h3><p>Architectural visualisations and walkthroughs based on your approved project references.</p><a class="text-link service-link" href="#contact" data-service="A real estate visualisation">Discuss this service <span aria-hidden="true">↗</span></a></article><article class="reveal"><span class="capability-icon" aria-hidden="true">↗</span><span class="mono">03 / SOCIAL CREATIVE</span><h3>Give the first <br>frame a purpose.</h3><p>Short video ads, alternate hooks and vertical edits designed for campaign testing.</p><a class="text-link service-link" href="#contact" data-service="Short ads for social campaigns">Discuss this service <span aria-hidden="true">↗</span></a></article></div>
+    </section>
 
-      <p class="reveal mt-8 text-white/70 text-base sm:text-lg leading-relaxed tracking-wide max-w-xl">
-        AI-generated video ads and luxury real estate walkthroughs, produced at
-        film-grade quality — delivered in <span class="text-white font-medium">48 hours</span>, not four weeks.
-      </p>
+    <section id="founder" class="section founder-section" aria-labelledby="founder-title">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span class="section-index">03</span> MEET THE FOUNDER</p><h2 id="founder-title">A human behind<br><span class="muted-heading">every possibility.</span></h2></div><p class="section-intro">You work directly with the person<br>shaping your film, from brief to delivery.</p></div>
+      <div class="founder-grid"><div class="founder-identity reveal"><div class="identity-top"><span class="mono">NIGAM CINEMATICS</span><span class="identity-symbol" aria-hidden="true">↗</span></div><div class="founder-monogram" aria-hidden="true">AN<span class="monogram-orbit"></span></div><div class="identity-bottom"><p class="mono">FOUNDER / CREATIVE PRODUCER</p><h3>Abhishek Nigam</h3><span class="identity-location"></div></div>
+      <div class="founder-copy reveal"><p class="founder-kicker">Creative curiosity.<br>Analytical thinking.</p><p>I’m Abhishek, founder of Nigam Cinematics. I bring a background in business analytics and applied AI to cinematic storytelling—connecting creative decisions with the purpose of your campaign.</p><p>I hold an MS in Business Analytics from University of California San Diego. My experience spans marketing analytics, real estate and financial services. At the studio, I direct the concept, AI-assisted production and final edit.</p><div class="founder-credentials"><div><span class="mono">EDUCATION</span><p>MS Business Analytics<br><small>UC San Diego · Rady School · 2025</small></p></div><div><span class="mono">PERSPECTIVE</span><p>Analytics × storytelling<br><small>Brand strategy · Applied AI</small></p></div></div></div>
+    </section>
 
-      <div class="reveal mt-10 flex flex-col sm:flex-row items-start gap-4">
-        <a href="https://wa.me/919235600936?text=Hi%2C%20I%27d%20like%20a%20custom%20video%20spec"
-           class="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-ink font-semibold tracking-wide px-8 py-4 rounded-full">
-          Get Custom Spec <i class="fa-solid fa-arrow-right text-xs"></i>
-        </a>
-        <a href="#work"
-           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/25 hover:border-gold/60 text-white/90 tracking-wide px-8 py-4 rounded-full transition-colors backdrop-blur-sm">
-          View Work
-        </a>
-      </div>
-    </div>
+    <section id="process" class="section process-section" aria-labelledby="process-title">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span class="section-index">04</span> THE PROCESS</p><h2 id="process-title">One idea.<br><span class="muted-heading">A clear path to film.</span></h2></div><p class="section-intro">Creative ambition.<br>Clear approvals at every stage.</p></div>
+      <div class="process-grid"><article class="process-step reveal"><span class="step-number">01<span aria-hidden="true">↗</span></span><p class="mono">DISCOVER &amp; DIRECT</p><h3>Find the story.</h3><p>We start with your audience, product and campaign goal. You approve the concept, script and visual direction.</p></article><article class="process-step reveal"><span class="step-number">02<span aria-hidden="true">↗</span></span><p class="mono">GENERATE &amp; REFINE</p><h3>Build the world.</h3><p>AI-assisted visuals take shape around your references, with attention to product detail, continuity and brand identity.</p></article><article class="process-step reveal"><span class="step-number">03<span aria-hidden="true">↗</span></span><p class="mono">EDIT &amp; DELIVER</p><h3>Make it a film.</h3><p>Editing, sound and colour bring the story together. We deliver the formats and revisions agreed in your brief.</p></article></div>
+      <div class="process-note"><span class="mono">BUILT AROUND YOUR BRIEF</span><p>Scope, delivery dates, formats and revision rounds are confirmed before production begins.</p></div>
+    </section>
 
-    <div class="absolute bottom-6 right-6 sm:right-10 z-10 text-white/40 text-xs tracking-[0.3em] uppercase hidden sm:block">
-      <i class="fa-solid fa-chevron-down animate-bounce"></i>
-    </div>
-  </section>
-
-  <!-- ============ MARQUEE DIVIDER ============ -->
-  <div class="relative border-y border-line overflow-hidden bg-panel/40 py-4">
-    <div class="marquee flex items-center gap-10 whitespace-nowrap font-mono text-xs tracking-[0.3em] uppercase text-white/45">
-      <span class="flex items-center gap-10">
-        <span>AI Video Ads</span><span class="text-gold">/</span>
-        <span>Real Estate Walkthroughs</span><span class="text-copper-soft">/</span>
-        <span>Jewellery D2C</span><span class="text-wine-soft">/</span>
-        <span>Performance Hooks</span><span class="text-teal-soft">/</span>
-        <span>48-Hour Delivery</span><span class="text-gold">/</span>
-      </span>
-      <span class="flex items-center gap-10" aria-hidden="true">
-        <span>AI Video Ads</span><span class="text-gold">/</span>
-        <span>Real Estate Walkthroughs</span><span class="text-copper-soft">/</span>
-        <span>Jewellery D2C</span><span class="text-wine-soft">/</span>
-        <span>Performance Hooks</span><span class="text-teal-soft">/</span>
-        <span>48-Hour Delivery</span><span class="text-gold">/</span>
-      </span>
-    </div>
-  </div>
-
-  <!-- ============ PORTFOLIO ============ -->
-  <section id="work" class="px-6 py-28 lg:py-36">
-    <div class="max-w-7xl mx-auto">
-
-      <div class="reveal text-center max-w-2xl mx-auto mb-16">
-        <p class="font-mono text-xs tracking-[0.3em] text-gold-soft/80 uppercase mb-4">Portfolio</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Selected Showreels &amp; Visual Assets</h2>
-        <p class="mt-4 text-white/55 leading-relaxed">Explore our latest high-converting video campaigns.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
-
-        
-        <!-- Card 1 : Featured Reel -->
-        <div class="reveal glass card-hover glow-gold rounded-2xl overflow-hidden group">
-          <div class="video-embed relative aspect-video w-full bg-black cursor-pointer" data-video-id="LB0pGVsFCS0">
-            <img 
-              src="https://img.youtube.com/vi/LB0pGVsFCS0/maxresdefault.jpg" 
-              alt="Featured Showreel thumbnail" 
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-              loading="lazy"
-            >
-            <!-- Subtle drop-shadow tint for button visibility -->
-            <div class="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors"></div>
-            <button type="button" class="play-btn absolute inset-0 flex items-center justify-center" aria-label="Play Featured Showreel">
-              <span class="w-16 h-16 rounded-full glass border border-gold/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:border-gold">
-                <i class="fa-solid fa-play text-gold-soft ml-1"></i>
-              </span>
-            </button>
-          </div>
-          <div class="p-6">
-            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-gold-soft border border-gold/40 rounded-full px-3 py-1">Reel 01 — TATA Tanishq</span>
-            <p class="mt-4 text-sm text-white/60 leading-relaxed">A 1 min Commercial Ad for TATA Tanishq.</p>
-          </div>
-        </div>
-        
-        <!-- Card 2 : Featured Reel -->
-        <div class="reveal glass card-hover glow-gold rounded-2xl overflow-hidden group">
-          <div class="video-embed relative aspect-video w-full bg-black cursor-pointer" data-video-id="XXkZAzN8YDo">
-            <img 
-              src="https://img.youtube.com/vi/XXkZAzN8YDo/maxresdefault.jpg" 
-              alt="Featured Showreel thumbnail" 
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-              loading="lazy"
-            >
-            <!-- Subtle drop-shadow tint for button visibility -->
-            <div class="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors"></div>
-            <button type="button" class="play-btn absolute inset-0 flex items-center justify-center" aria-label="Play Featured Showreel">
-              <span class="w-16 h-16 rounded-full glass border border-gold/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:border-gold">
-                <i class="fa-solid fa-play text-gold-soft ml-1"></i>
-              </span>
-            </button>
-          </div>
-          <div class="p-6">
-            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-gold-soft border border-gold/40 rounded-full px-3 py-1">Reel 02 — Corporate Tower</span>
-            <p class="mt-4 text-sm text-white/60 leading-relaxed">A 1.2 min Corporate Tower advertisement video for high-ticket Real Estate Companies.</p>
-          </div>
-        </div>
-
-        <!-- Card 3 IDFC FIRST Bank Ad-->
-        <div class="reveal glass card-hover glow-copper rounded-2xl overflow-hidden group">
-          <div class="video-embed relative aspect-video w-full bg-black cursor-pointer" data-video-id="7kDpoxgapvo">
-            <img 
-              src="https://img.youtube.com/vi/7kDpoxgapvo/maxresdefault.jpg" 
-              alt="IDFC FIRST Bank Ad thumbnail" 
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-              loading="lazy"
-            >
-            <!-- Subtle drop-shadow tint for button visibility -->
-            <div class="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors"></div>
-            <button type="button" class="play-btn absolute inset-0 flex items-center justify-center" aria-label="Play IDFC FIRST Bank Ad showreel">
-              <span class="w-16 h-16 rounded-full glass border border-copper/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:border-copper">
-                <i class="fa-solid fa-play text-copper-soft ml-1"></i>
-              </span>
-            </button>
-          </div>
-          <div class="p-6">
-            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-copper-soft border border-copper/40 rounded-full px-3 py-1">Reel 03 — IDFC FIRST Bank Ad</span>
-            <p class="mt-4 text-sm text-white/60 leading-relaxed">A 44-second fixed deposit appeal advertisement video.</p>
-          </div>
-        </div>
-
-        <!-- Card 4: Township Reveal -->
-        <div class="reveal glass card-hover glow-copper rounded-2xl overflow-hidden group">
-          <div class="video-embed relative aspect-video w-full bg-black cursor-pointer" data-video-id="gNB8J_PbGhU">
-            <img 
-              src="https://img.youtube.com/vi/gNB8J_PbGhU/maxresdefault.jpg" 
-              alt="Township Reveal Thumbnail" 
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-              loading="lazy"
-            >
-            <!-- Subtle drop-shadow tint for button visibility -->
-            <div class="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors"></div>
-            <button type="button" class="play-btn absolute inset-0 flex items-center justify-center" aria-label="Play Township Reveal video">
-              <span class="w-16 h-16 rounded-full glass border border-copper/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:border-copper">
-                <i class="fa-solid fa-play text-copper-soft ml-1"></i>
-              </span>
-            </button>
-          </div>
-          <div class="p-6">
-            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-copper-soft border border-copper/40 rounded-full px-3 py-1">Reel 04 — Township Reveal</span>
-            <p class="mt-4 text-sm text-white/60 leading-relaxed">Strategic land investment walkthrough highlighting connectivity and growth potential on Sultanpur Road.</p>
-          </div>
-        </div>
-
-
-        <!-- Card 5 : Puneet Jewellery -->
-        <div class="reveal glass card-hover glow-wine rounded-2xl overflow-hidden group">
-          <div class="video-embed relative aspect-video w-full bg-black cursor-pointer" data-video-id="q5s627QJA3M">
-            <img 
-              src="https://img.youtube.com/vi/q5s627QJA3M/maxresdefault.jpg" 
-              alt="Jewellery D2C thumbnail" 
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-              loading="lazy"
-            >
-            <!-- Subtle drop-shadow tint for button visibility (referenced from Card 2) -->
-            <div class="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors"></div>
-            <button type="button" class="play-btn absolute inset-0 flex items-center justify-center" aria-label="Play Jewellery D2C showreel">
-              <span class="w-16 h-16 rounded-full glass border border-wine/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:border-wine">
-                <i class="fa-solid fa-play text-wine-soft ml-1"></i>
-              </span>
-            </button>
-          </div>
-          <div class="p-6">
-            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-wine-soft border border-wine/40 rounded-full px-3 py-1">Reel 05 — Jewellery D2C</span>
-            <p class="mt-4 text-sm text-white/60 leading-relaxed">A scroll-stopping product hero designed to lift add-to-cart from Instagram Reels.</p>
-          </div>
-        </div>
-
-        <!-- Card 6 : LUXE & LUCKS SALON -->
-        <div class="reveal glass card-hover glow-teal rounded-2xl overflow-hidden group">
-          <div class="video-embed relative aspect-video w-full bg-black cursor-pointer" data-video-id="6EMWJ6o0Pgg">
-            <img 
-              src="https://img.youtube.com/vi/6EMWJ6o0Pgg/maxresdefault.jpg" 
-              alt="Performance Ad Hook thumbnail" 
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
-              loading="lazy"
-            >
-            <!-- Subtle drop-shadow tint for button visibility (referenced from Card 3) -->
-            <div class="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors"></div>
-            <button type="button" class="play-btn absolute inset-0 flex items-center justify-center" aria-label="Play Performance Ad Hook showreel">
-              <span class="w-16 h-16 rounded-full glass border border-teal-soft/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:border-teal-soft">
-                <i class="fa-solid fa-play text-teal-soft ml-1"></i>
-              </span>
-            </button>
-          </div>
-          <div class="p-6">
-            <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-teal-soft border border-teal/50 rounded-full px-3 py-1">Reel 06 — Luxury Salon</span>
-            <p class="mt-4 text-sm text-white/60 leading-relaxed">A 27-second advertisement built for a Luxury Salon for Meta/TikTok posting at scale.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY CHOOSE US ============ -->
-  <section id="why" class="px-6 py-28 lg:py-36 border-t border-line">
-    <div class="max-w-7xl mx-auto">
-
-      <div class="reveal text-center max-w-2xl mx-auto mb-16">
-        <p class="font-mono text-xs tracking-[0.3em] text-gold-soft/80 uppercase mb-4">Why Nigam Cinematics</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Built for brands that move fast</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-
-        <div class="reveal glass card-hover glow-copper rounded-2xl p-8">
-          <div class="w-12 h-12 rounded-full bg-copper/10 border border-copper/30 flex items-center justify-center mb-6">
-            <i class="fa-solid fa-bolt text-copper-soft"></i>
-          </div>
-          <h3 class="font-display text-lg font-semibold tracking-tight mb-3">48-Hour Rapid Delivery</h3>
-          <p class="text-sm text-white/60 leading-relaxed">From brief to final render in two days — no waiting weeks on a traditional production schedule.</p>
-        </div>
-
-        <div class="reveal glass card-hover glow-teal rounded-2xl p-8">
-          <div class="w-12 h-12 rounded-full bg-teal/15 border border-teal/40 flex items-center justify-center mb-6">
-            <i class="fa-solid fa-bullseye text-teal-soft"></i>
-          </div>
-          <h3 class="font-display text-lg font-semibold tracking-tight mb-3">High-Conversion Visual Hooking</h3>
-          <p class="text-sm text-white/60 leading-relaxed">Every frame is built around the first three seconds — the difference between a scroll and a sale.</p>
-        </div>
-
-        <div class="reveal glass card-hover glow-wine rounded-2xl p-8">
-          <div class="w-12 h-12 rounded-full bg-wine/15 border border-wine/40 flex items-center justify-center mb-6">
-            <i class="fa-solid fa-layer-group text-wine-soft"></i>
-          </div>
-          <h3 class="font-display text-lg font-semibold tracking-tight mb-3">Multi-Format Delivery</h3>
-          <p class="text-sm text-white/60 leading-relaxed">4K horizontal for web, 9:16 vertical for Reels and Stories — one shoot, every placement.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROCESS ============ -->
-  <section id="process" class="px-6 py-28 lg:py-36 border-t border-line">
-    <div class="max-w-6xl mx-auto">
-
-      <div class="reveal text-center max-w-2xl mx-auto mb-20">
-        <p class="font-mono text-xs tracking-[0.3em] text-gold-soft/80 uppercase mb-4">Process</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Three steps to final render</h2>
-      </div>
-
-      <div class="relative grid md:grid-cols-3 gap-14 md:gap-8">
-        <div class="hidden md:block absolute top-6 left-0 right-0 h-px timeline-line"></div>
-
-        <div class="reveal relative text-center md:text-left">
-          <div class="w-12 h-12 mx-auto md:mx-0 rounded-full bg-ink border border-gold/50 flex items-center justify-center font-mono text-gold text-sm mb-6 relative z-10">01</div>
-          <h3 class="font-display text-lg font-semibold tracking-tight mb-3">Scripting &amp; AI Concept</h3>
-          <p class="text-sm text-white/60 leading-relaxed">We map the hook, shot list, and prompt architecture before a single frame is generated.</p>
-        </div>
-
-        <div class="reveal relative text-center md:text-left">
-          <div class="w-12 h-12 mx-auto md:mx-0 rounded-full bg-ink border border-gold/50 flex items-center justify-center font-mono text-gold text-sm mb-6 relative z-10">02</div>
-          <h3 class="font-display text-lg font-semibold tracking-tight mb-3">High-Res Generation</h3>
-          <p class="text-sm text-white/60 leading-relaxed">Produced across Kling, Veo, and Gemini, refined through iterative prompting for cinematic fidelity.</p>
-        </div>
-
-        <div class="reveal relative text-center md:text-left">
-          <div class="w-12 h-12 mx-auto md:mx-0 rounded-full bg-ink border border-gold/50 flex items-center justify-center font-mono text-gold text-sm mb-6 relative z-10">03</div>
-          <h3 class="font-display text-lg font-semibold tracking-tight mb-3">Final Render &amp; Delivery</h3>
-          <p class="text-sm text-white/60 leading-relaxed">Color, sound design, and multi-format export — delivered ready to publish in 48 hours.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FINAL CTA ============ -->
-  <section id="contact" class="px-6 py-28 lg:py-32">
-    <div class="reveal max-w-5xl mx-auto glass rounded-3xl px-8 py-16 lg:py-20 text-center relative overflow-hidden">
-      <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-gold/10 blur-[140px]"></div>
-      <div class="pointer-events-none absolute -bottom-32 -right-20 w-[500px] h-[500px] rounded-full bg-teal/20 blur-[140px]"></div>
-
-      <h2 class="relative font-display text-3xl sm:text-5xl font-semibold tracking-tight mb-6">
-        Ready to put your brand <span class="gold-gradient-text">on screen?</span>
-      </h2>
-      <p class="relative text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
-        Book a campaign or request a free custom spec — straight to WhatsApp, reply within hours. You can also reach us via email at <a href="mailto:business@nigamcinematics.com" class="text-white hover:text-gold-soft underline transition-colors">business@nigamcinematics.com</a>.
-      </p>
-      <a href="https://wa.me/919235600936?text=Hi%2C%20I%27d%20like%20to%20book%20a%20campaign"
-         class="relative btn-primary inline-flex items-center gap-2 bg-gold text-ink font-semibold tracking-wide px-8 py-4 rounded-full">
-        <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
-      </a>
-    </div>
-  </section>
-
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="border-t border-line px-6 py-12">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-
-    <div class="flex items-center gap-3">
-      <img src="logos.png" alt="Nigam Cinematics Logo" class="h-8 w-auto object-contain grayscale opacity-70">
-      <span class="font-display text-sm tracking-[0.2em] uppercase text-white/70">Nigam Cinematics</span>
-    </div>
-
-    <div class="flex flex-wrap items-center justify-center gap-6 text-white/50 text-sm">
-      <a href="mailto:business@nigamcinematics.com" class="hover:text-gold-soft transition-colors flex items-center gap-2">
-        <i class="fa-solid fa-envelope"></i> business@nigamcinematics.com
-      </a>
-      <a href="https://instagram.com/nigamcinematics" target="_blank" rel="noopener" class="hover:text-gold-soft transition-colors flex items-center gap-2">
-        <i class="fa-brands fa-instagram"></i> @nigamcinematics
-      </a>
-      <a href="https://www.youtube.com/@nigamcinematics" target="_blank" rel="noopener" class="hover:text-gold-soft transition-colors flex items-center gap-2">
-        <i class="fa-brands fa-youtube"></i> YouTube
-      </a>
-      <span class="hidden sm:inline text-white/20">|</span>
-      <span class="hidden sm:inline">nigamcinematics.com</span>
-    </div>
-
-    <p class="text-white/30 text-xs tracking-wide hidden md:block">© 2026 Nigam Cinematics. All rights reserved.</p>
-  </div>
-  <p class="text-white/30 text-xs tracking-wide text-center mt-6 md:hidden">© 2026 Nigam Cinematics. All rights reserved.</p>
-</footer>
-
-<script>
-  // Hero background: only load the live video iframe on tablet/desktop.
-  // Phones keep the static poster — saves mobile data and sidesteps iOS Safari's
-  // unreliable autoplay for embedded YouTube iframes.
-  const heroMedia = document.getElementById('heroMedia');
-  if (heroMedia && window.matchMedia('(min-width: 640px)').matches) {
-    const posterEl = heroMedia.querySelector('[data-hero-video-id]');
-    const videoId = posterEl ? posterEl.dataset.heroVideoId : null;
-    if (videoId) {
-      const iframe = document.createElement('iframe');
-      iframe.className = 'absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none';
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1`;
-      iframe.title = 'Nigam Cinematics background showreel';
-      iframe.setAttribute('allow', 'autoplay; encrypted-media');
-      iframe.setAttribute('aria-hidden', 'true');
-      iframe.tabIndex = -1;
-      heroMedia.appendChild(iframe);
-    }
-  }
-
-  // Portfolio: click-to-play (loads the real iframe only when requested)
-  document.querySelectorAll('.video-embed').forEach(container => {
-    const btn = container.querySelector('.play-btn');
-    btn.addEventListener('click', () => {
-      const id = container.dataset.videoId;
-      const title = btn.getAttribute('aria-label') || 'Showreel';
-      container.innerHTML = `<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    });
-  });
-
-  // Mobile menu toggle
-  const menuBtn = document.getElementById('menuBtn');
-  const menuIcon = document.getElementById('menuIcon');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  menuBtn.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuBtn.setAttribute('aria-expanded', String(!isOpen));
-    menuIcon.classList.toggle('fa-bars');
-    menuIcon.classList.toggle('fa-xmark');
-  });
-
-  document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuIcon.classList.add('fa-bars');
-      menuIcon.classList.remove('fa-xmark');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Header state on scroll
-  const header = document.getElementById('siteHeader');
-  const onScroll = () => {
-    header.classList.toggle('is-scrolled', window.scrollY > 40);
-  };
-  window.addEventListener('scroll', onScroll);
-  onScroll();
-
-  // Scroll-reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => io.observe(el));
-
-  // Ambient timecode ticker (purely decorative, respects reduced motion)
-  const tcEl = document.getElementById('timecode');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (tcEl && !prefersReducedMotion) {
-    let frame = 0, sec = 0, min = 0, hr = 0;
-    const fps = 24;
-    const pad = n => String(n).padStart(2, '0');
-    setInterval(() => {
-      frame++;
-      if (frame >= fps) { frame = 0; sec++; }
-      if (sec >= 60) { sec = 0; min++; }
-      if (min >= 60) { min = 0; hr++; }
-      tcEl.textContent = `${pad(hr)}:${pad(min)}:${pad(sec)}:${pad(frame)}`;
-    }, 1000 / fps);
-  }
-</script>
-
+    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+      <div class="contact-glow" aria-hidden="true"></div><div class="contact-grid"><div class="contact-copy reveal"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> YOUR NEXT PROJECT</p><h2 id="contact-title">Let’s create<br><span class="gradient-text">what’s next.</span></h2><p>Tell us what you’re building.<br>We’ll help you put it on screen.</p><a class="email-link" href="mailto:business@nigamcinematics.com">business@nigamcinematics.com <span aria-hidden="true">↗</span></a><div class="contact-socials"><a href="https://wa.me/919235600936" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="https://instagram.com/nigamcinematics" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.youtube.com/@nigamcinematics" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div></div>
+      <form id="project-form" class="project-form reveal"><p class="form-heading">Start with a brief.</p><p class="form-intro">A few details to begin our conversation.</p><div class="form-row"><label>Your name<input name="name" autocomplete="name" placeholder="Your name" maxlength="80" required></label><label>Business / brand<input name="business" autocomplete="organization" placeholder="Your brand" maxlength="120" required></label></div><label>What are we creating?<select name="service"><option value="A brand or product film">Brand / product film</option><option value="A real estate visualisation">Real estate visualisation</option><option value="Short ads for social campaigns">Short ads / social campaign</option><option value="A project I'd like to discuss">Let’s explore an idea</option></select></label><label>Tell us about your idea<textarea name="brief" rows="3" placeholder="Your product, campaign goal and ideal deadline…" maxlength="1200" required></textarea></label><button class="button button-primary" type="submit" disabled>Discuss on WhatsApp <span aria-hidden="true">↗</span></button><p class="form-note">Opens WhatsApp with your brief. Review it before sending.</p><noscript><p class="form-note">Please use the email or WhatsApp link to discuss your project.</p></noscript><p id="form-status" class="sr-only" role="status" aria-live="polite"></p><a id="whatsapp-fallback" class="text-link" target="_blank" rel="noopener noreferrer" hidden>Open your prepared brief on WhatsApp ↗</a></form></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-main"><a class="brand" href="#main" aria-label="Nigam Cinematics home"><img src="images/logos.png" alt="" width="1680" height="941"><span>NIGAM<small>CINEMATICS</small></span></a><p>Human vision. AI possibilities.</p><a class="back-to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><span>© <span id="year">2026</span> Nigam Cinematics</span><span>INDEPENDENT STUDIO / LUCKNOW, INDIA</span>Founded by Abhishek Nigam ↗</div></footer>
+  <nav class="mobile-actions" aria-label="Quick actions"><a href="#work"><span aria-hidden="true">▶</span> View work</a><a class="mobile-project" href="#contact">Start a project <span aria-hidden="true">↗</span></a></nav>
+  <dialog class="film-modal" aria-labelledby="modal-title" aria-describedby="modal-description"><div class="film-modal-head"><div><p class="mono">NIGAM CINEMATICS / SELECTED FILM</p><h2 id="modal-title"></h2><p id="modal-description"></p></div><button class="modal-close" type="button" aria-label="Close film">×</button></div><div class="video-frame"><iframe title="Nigam Cinematics film" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="modal-footer"><a class="text-link" href="#contact" id="modal-enquiry">Discuss a film for your brand ↗</a><a class="player-fallback" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></div></dialog>
 </body>
 </html>
